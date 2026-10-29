@@ -398,13 +398,47 @@ async function loadProfilePhoto(user) {
   }
   }
   
+ 
 async function initSupabaseAuth(){
   if(!supabaseReady()){
     const msg="Supabase is not configured yet. Add your Project URL and publishable/anon key near the top of the JavaScript in index.html.";
-    const s=document.querySelector("#signinStatus"); if(s)s.textContent=msg;
-    const u=document.querySelector("#signupStatus"); if(u)u.textContent=msg;
-    updateAuthUI(null); return;
+    const s=document.querySelector("#signinStatus");
+    if(s) s.textContent=msg;
+    const u=document.querySelector("#signupStatus");
+    if(u) u.textContent=msg;
+    updateAuthUI(null);
+    return;
   }
+
+  const {data:{session},error}=await supabaseClient.auth.getSession();
+
+  if(error) console.error("Supabase session error:",error.message);
+
+  const user=session?.user||null;
+  updateAuthUI(user);
+
+  if(user){
+    await loadProfilePhoto(user);
+  }
+
+  supabaseClient.auth.onAuthStateChange((_event,newSession)=>{
+    const signedInUser=newSession?.user||null;
+
+    updateAuthUI(signedInUser);
+
+    if(signedInUser){
+      setTimeout(()=>{
+        loadProfilePhoto(signedInUser);
+      },0);
+    }else{
+      const avatar=document.querySelector("#profileAvatar");
+      if(avatar){
+        avatar.removeAttribute("src");
+      }
+    }
+  });
+  }
+  
   const {data:{session},error}=await supabaseClient.auth.getSession();
   if(error) console.error("Supabase session error:",error.message);
   updateAuthUI(session?.user||null);
