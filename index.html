@@ -366,6 +366,38 @@ function updateAuthUI(user) {
     const notice=document.querySelector("#profileAuthNotice"); if(notice) notice.textContent=`Signed in as ${name} (${user.email||""}).`;
   } else { const notice=document.querySelector("#profileAuthNotice"); if(notice) notice.textContent="You are not signed in. Sign in or create an account to access your customer session."; }
 }
+  
+async function loadProfilePhoto(user) {
+  if (!user || !supabaseReady()) return;
+
+  const avatar = document.querySelector("#profileAvatar");
+  if (!avatar) return;
+
+  try {
+    const { data, error } = await supabaseClient
+      .from("profiles")
+      .select("avatar_url")
+      .eq("id", user.id)
+      .maybeSingle();
+
+    if (error) throw error;
+    if (!data?.avatar_url) return;
+
+    const { data: signedData, error: signedError } =
+      await supabaseClient.storage
+        .from("profile-photos")
+        .createSignedUrl(data.avatar_url, 3600);
+
+    if (signedError) throw signedError;
+
+    if (signedData?.signedUrl) {
+      avatar.src = signedData.signedUrl;
+    }
+  } catch (err) {
+    console.error("Could not load profile photo:", err);
+  }
+  }
+  
 async function initSupabaseAuth(){
   if(!supabaseReady()){
     const msg="Supabase is not configured yet. Add your Project URL and publishable/anon key near the top of the JavaScript in index.html.";
