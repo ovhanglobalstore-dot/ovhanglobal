@@ -630,7 +630,6 @@ $("#profilePhotoInput")?.addEventListener("change", async e => {
   }
 });
   
-=>{const file=e.target.files&&e.target.files[0];if(!file)return;if(!file.type.startsWith("image/")){toast("Please choose an image file.");return}if(file.size>2*1024*1024){toast("Choose an image smaller than 2 MB.");e.target.value="";return}const reader=new FileReader();reader.onload=()=>{const st=readSettings();st.photo=reader.result;try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(st));$("#profileAvatar").src=reader.result;toast("Profile picture saved in this browser.")}catch(_){toast("This image is too large to save in browser storage.")}};reader.readAsDataURL(file)});
 $("#logoutBtn")?.addEventListener("click",doLogout);
 $("#deleteAccountBtn")?.addEventListener("click",()=>{toast("For security, account deletion needs a verified server-side function. Please contact support to request account deletion for now.")});
 $("#resetSettingsBtn")?.addEventListener("click",()=>{if(confirm("Reset theme and language to their defaults and remove the saved profile picture?")){try{localStorage.removeItem(SETTINGS_KEY)}catch(_){}if($("#profilePhotoInput"))$("#profilePhotoInput").value="";initSettings();toast("Settings have been reset.")}});
