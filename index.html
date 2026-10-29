@@ -530,58 +530,98 @@ function renderFullCart(){
 window.addEventListener("hashchange",()=>showRoute(location.hash.slice(1)||"marketplace"));
 $("#menuToggle").addEventListener("click",()=>{const m=$("#quickMenu"),open=!m.classList.contains("open");m.classList.toggle("open",open);$("#menuToggle").setAttribute("aria-expanded",String(open))});
 document.addEventListener("click",e=>{if(!e.target.closest(".header-menu")){const menu=$("#quickMenu"),toggle=$("#menuToggle");if(menu)menu.classList.remove("open");if(toggle)toggle.setAttribute("aria-expanded","false")}});
-// Settings and profile demo behavior.
-const SETTINGS_KEY="ovhanGlobalSettingsV1";
-function readSettings(){try{return JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}")}catch(_){return {}}}
-function applyTheme(dark){document.body.classList.toggle("theme-dark",!!dark);const sw=$("#themeSwitch"),status=$("#themeStatus");if(sw)sw.checked=!!dark;if(status)status.textContent=dark?"Dark theme":"Light theme";const st=readSettings();st.dark=!!dark;try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(st))}catch(_){}}
 
-function initSettings(){
+ // Settings and profile behavior.
+const SETTINGS_KEY = "ovhanGlobalSettingsV1";
+
+function readSettings() {
+  try {
+    return JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}");
+  } catch (_) {
+    return {};
+  }
+}
+
+function applyTheme(dark) {
+  document.body.classList.toggle("theme-dark", !!dark);
+
+  const sw = $("#themeSwitch");
+  const status = $("#themeStatus");
+
+  if (sw) sw.checked = !!dark;
+  if (status) status.textContent = dark ? "Dark theme" : "Light theme";
+
+  const st = readSettings();
+  st.dark = !!dark;
+
+  try {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(st));
+  } catch (_) {}
+}
+
+function initSettings() {
   const st = readSettings();
   applyTheme(!!st.dark);
+
   if ($("#languageSelect")) {
     $("#languageSelect").value = st.language || "en";
   }
 }
-  
-$("#themeSwitch")?.addEventListener("change",e=>applyTheme(e.target.checked));
-$("#languageSelect")?.addEventListener("change",e=>{const st=readSettings();st.language=e.target.value;try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(st))}catch(_){}toast("Language preference saved. Full page translation is not enabled yet.")});
-  
+
+$("#themeSwitch")?.addEventListener("change", e => {
+  applyTheme(e.target.checked);
+});
+
+$("#languageSelect")?.addEventListener("change", e => {
+  const st = readSettings();
+  st.language = e.target.value;
+
+  try {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(st));
+  } catch (_) {}
+
+  toast("Language preference saved. Full page translation is not enabled yet.");
+});
+
 $("#profilePhotoInput")?.addEventListener("change", async e => {
-  const file = e.target.files?.[0];
+  const input = e.target;
+  const file = input.files?.[0];
+
   if (!file) return;
 
   if (!["image/jpeg", "image/png", "image/webp", "image/gif"].includes(file.type)) {
     toast("Choose a JPG, PNG, WebP, or GIF image.");
-    e.target.value = "";
+    input.value = "";
     return;
   }
 
   if (file.size > 2 * 1024 * 1024) {
     toast("Choose an image smaller than 2 MB.");
-    e.target.value = "";
+    input.value = "";
     return;
   }
 
   if (!supabaseReady()) {
     toast("Supabase is not configured.");
+    input.value = "";
     return;
   }
 
-  const { data: userData, error: userError } =
-    await supabaseClient.auth.getUser();
-
-  const user = userData?.user;
-  if (userError || !user) {
-    toast("Please sign in before uploading a profile picture.");
-    e.target.value = "";
-    return;
-  }
-
-  const avatar = $("#profileAvatar");
-  const input = e.target;
   input.disabled = true;
 
   try {
+    const { data: userData, error: userError } =
+      await supabaseClient.auth.getUser();
+
+    if (userError) throw userError;
+
+    const user = userData?.user;
+
+    if (!user) {
+      toast("Please sign in before uploading a profile picture.");
+      return;
+    }
+
     const extension = {
       "image/jpeg": "jpg",
       "image/png": "png",
@@ -618,6 +658,7 @@ $("#profilePhotoInput")?.addEventListener("change", async e => {
 
     if (signedError) throw signedError;
 
+    const avatar = $("#profileAvatar");
     if (avatar) avatar.src = signedData.signedUrl;
 
     toast("Profile picture uploaded successfully.");
@@ -629,7 +670,7 @@ $("#profilePhotoInput")?.addEventListener("change", async e => {
     input.value = "";
   }
 });
-  
+        
 $("#logoutBtn")?.addEventListener("click",doLogout);
 $("#deleteAccountBtn")?.addEventListener("click",()=>{toast("For security, account deletion needs a verified server-side function. Please contact support to request account deletion for now.")});
 $("#resetSettingsBtn")?.addEventListener("click",()=>{if(confirm("Reset theme and language to their defaults and remove the saved profile picture?")){try{localStorage.removeItem(SETTINGS_KEY)}catch(_){}if($("#profilePhotoInput"))$("#profilePhotoInput").value="";initSettings();toast("Settings have been reset.")}});
