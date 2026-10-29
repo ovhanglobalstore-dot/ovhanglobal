@@ -541,6 +541,7 @@ function initSettings(){
   if ($("#languageSelect")) {
     $("#languageSelect").value = st.language || "en";
   }
+}
   
 $("#themeSwitch")?.addEventListener("change",e=>applyTheme(e.target.checked));
 $("#languageSelect")?.addEventListener("change",e=>{const st=readSettings();st.language=e.target.value;try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(st))}catch(_){}toast("Language preference saved. Full page translation is not enabled yet.")});
