@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ovhan Global — discover fashion, footwear, bags, watches and everyday essentials.">
+<title>Ovhan Global | Shop the World</title>
+<style>
+:root{--navy:#10233f;--navy2:#19385e;--orange:#ff8a00;--light:#f4f6f9;--white:#fff;--text:#202b3c;--muted:#718096;--border:#e3e8ef;--green:#16834a;--shadow:0 5px 20px rgba(16,35,63,.08)}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--light);line-height:1.5}button,input,select{font:inherit}button{cursor:pointer;border:0}a{color:inherit;text-decoration:none}.wrap{max-width:1250px;margin:auto;padding:0 18px}
+.announcement{background:#08182d;color:#fff;text-align:center;padding:9px 12px;font-size:.9rem}.announcement strong{color:#ffb34d}
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 3px 14px #08182d33}.head-main{display:flex;align-items:center;gap:22px;padding:17px 0}.brand{display:flex;align-items:center;gap:10px;min-width:210px}.brand-mark{width:54px;height:54px;border-radius:14px;background:linear-gradient(145deg,#ffb02e,#ff7a00);display:grid;place-items:center;color:var(--navy);font-size:1.55rem;font-weight:900;box-shadow:inset 0 0 0 3px #ffffff55}.brand-name{font-weight:900;line-height:1.03;font-size:1.42rem;letter-spacing:.4px}.brand-name span{display:block;color:var(--orange);margin-top:4px}.brand-name small{display:block;font-size:.62rem;letter-spacing:3px;color:#d6dfeb;margin-top:7px}
+.search{display:flex;flex:1;min-width:100px;background:#fff;border-radius:9px;overflow:hidden}.search input{border:0;outline:0;padding:14px 16px;width:100%;min-width:0;color:#202b3c}.search button{background:var(--orange);padding:0 22px;font-size:1.25rem;color:#111}.head-action{color:#fff;background:transparent;font-weight:700;white-space:nowrap;padding:10px 5px}.cart-btn{background:var(--orange);color:#1a2637;border-radius:9px;padding:13px 16px;font-weight:800;white-space:nowrap}.nav{background:var(--navy2)}.nav-inner{display:flex;align-items:center;gap:25px;overflow:auto;white-space:nowrap;padding:12px 0}.nav a{font-size:.93rem;color:#f4f7fb}.nav a:hover{color:#ffc36e}
+main{padding:22px 0 45px}.hero{display:grid;grid-template-columns:1.4fr .8fr;gap:16px}.hero-main{background:linear-gradient(115deg,#10233f,#2a527e);color:#fff;border-radius:18px;padding:clamp(25px,5vw,54px);min-height:330px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;position:relative}.hero-main:after{content:"";position:absolute;width:290px;height:290px;border:38px solid #ffffff0d;border-radius:50%;right:-80px;bottom:-110px}.eyebrow{display:inline-block;align-self:flex-start;background:#ffb34d20;border:1px solid #ffb34d55;color:#ffc36e;padding:7px 13px;border-radius:30px;font-size:.82rem;font-weight:700;letter-spacing:.5px}.hero h1{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.08;margin:20px 0 14px;max-width:650px}.hero h1 span{color:#ff9b20}.hero p{font-size:1.05rem;color:#dbe5f2;max-width:600px}.primary{background:var(--orange);color:#172238;padding:13px 20px;border-radius:8px;font-weight:800;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;margin-top:23px}.hero-side{display:grid;gap:16px}.promo{border-radius:16px;padding:23px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;min-height:155px}.promo.orange{background:#fff0dc}.promo small{color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.8px}.promo h2{font-size:1.35rem;line-height:1.2;margin:7px 0}.promo p{color:var(--muted);font-size:.93rem}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 30px}.benefit{background:#fff;border:1px solid var(--border);border-radius:12px;padding:15px;display:flex;gap:11px;align-items:center}.benefit .icon{font-size:1.6rem}.benefit strong{display:block;font-size:.95rem}.benefit span{display:block;color:var(--muted);font-size:.82rem}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:28px 0 14px}.section-head h2{font-size:1.55rem;color:var(--navy)}.section-head p{color:var(--muted);font-size:.9rem}.category-grid{display:grid;grid-template-columns:repeat(8,minmax(95px,1fr));gap:12px}.category{background:#fff;border:1px solid var(--border);border-radius:13px;padding:16px 8px;text-align:center;transition:.2s}.category:hover,.category.active{border-color:var(--orange);box-shadow:var(--shadow);transform:translateY(-2px)}.category .emoji{font-size:2rem;display:block;margin-bottom:7px}.category strong{font-size:.88rem}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:14px 0}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--border);background:#fff;color:var(--text);border-radius:22px;padding:8px 13px;font-size:.9rem}.filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}.sort-currency{display:flex;gap:8px;align-items:center}.sort-currency select{border:1px solid var(--border);background:#fff;border-radius:8px;padding:9px 10px;color:var(--text)}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.product{background:#fff;border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:.2s;position:relative}.product:hover{box-shadow:var(--shadow);transform:translateY(-2px)}.product-media{height:205px;background:#edf1f5;position:relative;overflow:hidden}.product-media img{width:100%;height:100%;object-fit:cover;display:block}.badge{position:absolute;left:10px;top:10px;background:#e5f7ec;color:#176b3a;padding:4px 8px;border-radius:5px;font-size:.72rem;font-weight:800}.wish{position:absolute;right:10px;top:10px;background:#fff;border-radius:50%;width:34px;height:34px;color:#5c6675;font-size:1.2rem}.product-info{padding:13px}.product-info h3{font-size:.98rem;line-height:1.3;min-height:40px}.rating{color:#e99a00;font-size:.85rem;margin:5px 0}.rating span{color:var(--muted)}.price{font-size:1.16rem;font-weight:900;color:var(--navy)}.old-price{color:#9aa4b2;text-decoration:line-through;font-size:.82rem;margin-left:5px}.currency-alt{font-size:.78rem;color:var(--muted);margin-top:1px}.product-actions{display:flex;gap:8px;margin-top:12px}.add{background:var(--orange);color:#18263b;border-radius:7px;padding:9px 10px;flex:1;font-weight:800}.details{background:#eef2f7;color:var(--navy);border-radius:7px;padding:9px 11px;font-weight:700}
+.empty{grid-column:1/-1;background:#fff;border:1px dashed var(--border);border-radius:12px;text-align:center;padding:35px;color:var(--muted)}
+.newsletter{margin-top:34px;background:var(--navy);border-radius:16px;padding:25px;color:#fff;display:flex;justify-content:space-between;gap:20px;align-items:center}.newsletter p{color:#cbd6e5;font-size:.92rem}.newsletter form{display:flex;gap:8px;width:min(440px,100%)}.newsletter input{flex:1;min-width:0;border:0;border-radius:7px;padding:12px}.newsletter button{background:var(--orange);border-radius:7px;padding:12px 15px;font-weight:800}
+footer{background:#09182b;color:#d5dfeb;padding:30px 0 20px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.footer-grid h3{color:#fff;margin-bottom:9px}.footer-grid p,.footer-grid a{color:#b9c6d7;font-size:.9rem}.footer-links{display:grid;gap:7px}.copyright{border-top:1px solid #ffffff20;margin-top:23px;padding-top:15px;font-size:.82rem;color:#aab8ca;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.overlay{position:fixed;inset:0;background:#07132688;z-index:40;display:none}.overlay.show{display:block}.cart-drawer{position:fixed;z-index:41;right:0;top:0;height:100dvh;width:min(440px,100%);background:#fff;box-shadow:-10px 0 30px #0002;transform:translateX(105%);transition:.25s;display:flex;flex-direction:column}.cart-drawer.show{transform:translateX(0)}.cart-head{display:flex;justify-content:space-between;align-items:center;padding:18px;border-bottom:1px solid var(--border)}.close{background:#eef2f7;border-radius:7px;padding:6px 10px;font-size:1.2rem}.cart-items{padding:15px;overflow:auto;flex:1}.cart-row{display:grid;grid-template-columns:65px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}.cart-row img{width:65px;height:65px;object-fit:cover;border-radius:8px;background:#edf1f5}.cart-row h4{font-size:.9rem}.cart-row p{font-weight:800;color:var(--navy);font-size:.9rem}.qty{display:flex;align-items:center;gap:9px;margin-top:7px}.qty button{background:#eef2f7;border-radius:5px;width:25px;height:25px;font-weight:800}.remove{background:none;color:#b43c3c;font-size:.8rem}.cart-foot{padding:17px;border-top:1px solid var(--border);background:#fff}.total-line{display:flex;justify-content:space-between;font-weight:900;font-size:1.15rem;margin-bottom:12px}.checkout{width:100%;background:var(--green);color:#fff;padding:13px;border-radius:8px;font-weight:900}.note{font-size:.78rem;color:var(--muted);margin-top:8px}
+.modal{position:fixed;z-index:50;inset:0;display:none;align-items:center;justify-content:center;background:#07132699;padding:15px}.modal.show{display:flex}.modal-card{width:min(520px,100%);background:#fff;border-radius:14px;padding:22px;max-height:90dvh;overflow:auto}.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.field{display:grid;gap:5px;margin:12px 0}.field label{font-size:.88rem;font-weight:700}.field input,.field textarea,.field select{border:1px solid var(--border);border-radius:7px;padding:11px;width:100%}.field textarea{min-height:75px;resize:vertical}.notice{background:#fff4df;border:1px solid #ffe0a4;border-radius:8px;padding:10px;font-size:.85rem;margin:12px 0}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#10233f;color:#fff;padding:12px 17px;border-radius:9px;z-index:70;transition:.2s;box-shadow:var(--shadow);max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:950px){.head-main{gap:12px;flex-wrap:wrap}.brand{min-width:180px}.search{order:3;flex-basis:100%}.hero{grid-template-columns:1fr}.hero-main{min-height:300px}.hero-side{grid-template-columns:1fr 1fr}.category-grid{grid-template-columns:repeat(4,1fr)}.benefits{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.product-media{height:190px}}
+@media(max-width:600px){.wrap{padding:0 12px}.head-main{padding:12px 0}.brand-mark{width:45px;height:45px}.brand-name{font-size:1.15rem}.head-action{margin-left:auto}.cart-btn{padding:10px 12px}.nav-inner{gap:19px}.hero-main{padding:25px 21px;min-height:310px}.hero h1{font-size:2.15rem}.hero p{font-size:.96rem}.hero-side{grid-template-columns:1fr 1fr;gap:10px}.promo{padding:15px;min-height:145px}.promo h2{font-size:1.08rem}.promo p{font-size:.82rem}.benefit{padding:11px;gap:8px}.benefit .icon{font-size:1.35rem}.benefit strong{font-size:.84rem}.benefit span{font-size:.75rem}.category-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.category{padding:12px 4px}.category .emoji{font-size:1.65rem}.category strong{font-size:.78rem}.section-head h2{font-size:1.28rem}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-media{height:155px}.product-info{padding:10px}.product-info h3{font-size:.87rem;min-height:43px}.price{font-size:1rem}.product-actions{gap:5px}.add,.details{font-size:.8rem;padding:8px 7px}.newsletter{display:block;padding:20px}.newsletter form{margin-top:13px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.sort-currency{width:100%}.sort-currency select{flex:1}.copyright{display:block}.copyright span{display:block;margin-top:5px}}
+
+.menu-row{position:relative;padding-bottom:12px;display:flex;justify-content:flex-end}
+.menu-toggle{background:#24466d;color:#fff;border:1px solid #ffffff25;border-radius:8px;padding:9px 14px;font-weight:800}
+.menu-toggle span{margin-left:8px;color:#ffb34d}
+.quick-menu{display:none;position:absolute;right:18px;top:48px;width:min(300px,calc(100vw - 36px));background:#fff;color:var(--text);border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 35px #06162b40;z-index:35;overflow:hidden}
+.quick-menu.open{display:grid}
+.quick-menu a,.quick-menu button{display:block;text-align:left;padding:12px 15px;background:#fff;color:var(--text);border-bottom:1px solid #edf0f4;font-weight:700}
+.quick-menu a:hover,.quick-menu button:hover,.quick-menu .route-active{background:#fff4e5;color:#132743}
+.quick-menu a:last-child,.quick-menu button:last-child{border-bottom:0}
+.page-view{display:none;min-height:48vh;padding:25px 0 40px}
+.page-view.active{display:block}
+.page-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:clamp(20px,4vw,38px);box-shadow:var(--shadow);max-width:850px;margin:0 auto}
+.page-card h1{color:var(--navy);margin-bottom:8px;font-size:clamp(1.7rem,4vw,2.4rem)}
+.page-card>p{color:var(--muted);margin-bottom:18px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.page-card .field{margin:10px 0}
+.page-card .primary{border:0}
+.page-card .form-submit{width:100%;background:var(--orange);color:#15233b;padding:12px;border-radius:8px;font-weight:900;margin-top:12px}
+.faq-item{border-bottom:1px solid var(--border);padding:14px 0}
+.faq-item summary{cursor:pointer;font-weight:800;color:var(--navy)}
+.faq-item p{color:var(--muted);padding-top:8px}
+.ad-slideshow{position:relative;display:grid;grid-template-columns:minmax(0,1fr);margin:20px 0 27px;border-radius:16px;overflow:hidden;min-height:185px;background:linear-gradient(110deg,#ff8a00,#ffc35c);color:#15233b;isolation:isolate}
+/* Layer slides in the same grid cell so they can glide and fade smoothly. */
+.ad-slide{grid-area:1/1;display:flex;min-width:0;min-height:185px;padding:25px clamp(20px,5vw,45px);align-items:center;justify-content:space-between;gap:20px;opacity:0;visibility:hidden;transform:translateX(26px) scale(.99);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1),visibility .7s;pointer-events:none;z-index:0}
+.ad-slide.active{opacity:1;visibility:visible;transform:translateX(0) scale(1);pointer-events:auto;z-index:1}
+.ad-slide h2{font-size:clamp(1.35rem,3vw,2rem);line-height:1.15;margin-bottom:8px}
+.ad-slide p{max-width:590px}
+.ad-slide .ad-label{display:inline-block;background:#ffffff80;border-radius:20px;padding:4px 10px;font-size:.75rem;font-weight:900;text-transform:uppercase;margin-bottom:8px}
+.ad-slide .ad-cta{background:#10233f;color:#fff;border-radius:8px;padding:11px 15px;font-weight:800;white-space:nowrap}
+.ad-controls{position:absolute;right:14px;bottom:12px;display:flex;gap:7px}
+.ad-controls button{width:29px;height:29px;border-radius:50%;background:#10233f;color:#fff;font-weight:900}
+.ad-dots{position:absolute;left:20px;bottom:18px;display:flex;gap:6px}
+.ad-dots button{height:7px;width:19px;border-radius:8px;background:#10233f55}
+.ad-dots button.active{background:#10233f}
+.account-note{background:#edf5ff;border:1px solid #d4e4fa;border-radius:9px;padding:12px;color:#28466b;font-size:.88rem;margin:12px 0}
+@media(prefers-reduced-motion:reduce){.ad-slide{transition:none;transform:none}}
+@media(max-width:600px){.menu-row{padding-bottom:10px}.quick-menu{right:12px;top:45px}.ad-slide{align-items:flex-start;flex-direction:column;gap:10px;padding-bottom:45px}.ad-dots{bottom:15px}.ad-controls{bottom:8px}.form-grid{grid-template-columns:1fr}}
+
+
+/* Header layout: brand left, dropdown upper-right, search below. */
+.head-main{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 18px}
+.header-menu{position:relative;margin-left:auto;align-self:center}
+.menu-row{display:none!important}
+.menu-toggle{white-space:nowrap;background:#24466d;color:#fff;border:1px solid #ffffff25;border-radius:8px;padding:10px 14px;font-weight:800}
+.quick-menu{right:0;top:calc(100% + 7px)}
+.head-main>.search{flex:1 0 100%;width:100%}
+@media(min-width:800px){.head-main>.search{flex-basis:100%}}
+@media(max-width:520px){.head-main{gap:12px}.brand{min-width:0}.brand-mark{width:46px;height:46px}.brand-name{font-size:1.15rem}.header-menu{margin-left:auto}}
+
+
+.brand-mark-cart{position:relative;display:flex;align-items:center;justify-content:center;font-size:30px;line-height:1;background:linear-gradient(145deg,#ffb13b,#ff8a00);border:2px solid #ffd18b;box-shadow:0 3px 0 #d86c00;color:#10233f;overflow:hidden}
+.brand-mark-cart .brand-plane{position:absolute;right:2px;top:1px;font-size:17px;line-height:1;transform:rotate(-12deg);filter:drop-shadow(0 1px 0 #fff)}
+
+  
+/* OVHAN GLOBAL MOBILE ACCOUNT */
+.account-mobile {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px 14px 100px;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+.account-profile {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 18px 14px;
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  border-radius: 13px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.profile-avatar {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff0e5;
+  color: #e87516;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.profile-summary {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-summary strong {
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.profile-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #777;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.profile-settings {
+  border-left: 1px solid #ddd;
+  padding-left: 12px;
+}
+
+.profile-settings button {
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.account-panel {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+
+.account-panel[hidden] {
+  display: none !important;
+}
+
+.account-panel h3 {
+  margin-top: 0;
+  font-size: 17px;
+}
+
+.account-panel .field {
+  margin: 14px 0;
+}
+
+.account-panel .field p {
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+
+.account-links {
+  margin-top: 16px;
+  border-top: 1px solid #e7e7e7;
+}
+
+.account-row,
+.shop-row {
+  width: 100%;
+  min-height: 57px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 8px;
+  color: #252525;
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid #e9e9e9;
+  text-align: left;
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.account-line-icon {
+  width: 27px;
+  flex: 0 0 27px;
+  text-align: center;
+  font-size: 23px;
+  color: #555;
+}
+
+.account-arrow {
+  margin-left: auto;
+  color: #888;
+  font-size: 24px;
+}
+
+.notification-dot {
+  width: 9px;
+  height: 9px;
+  margin-left: auto;
+  background: #e53935;
+  border-radius: 50%;
+}
+
+.notification-dot + .account-arrow {
+  margin-left: 0;
+}
+
+.shop-heading {
+  margin: 22px -14px 0;
+  padding: 14px 22px;
+  background: #f4f4f4;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.shop-links {
+  border-bottom: 1px solid #e9e9e9;
+}
+.account-bottom-nav {
+  position: fixed;
+  z-index: 10000;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0;
+  padding: 8px 4px max(8px, env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid #e3e3e3;
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.06);
+  transform: none;
+}
+  
+.account-bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  color: #666;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.account-bottom-nav a small {
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.account-bottom-nav a.active {
+  color: #e87516;
+  font-weight: 700;
+}
+
+.account-mobile button:focus-visible,
+.account-mobile a:focus-visible {
+  outline: 2px solid #e87516;
+  outline-offset: 2px;
+}
+
+@media (min-width: 600px) {
+  .account-mobile {
+    padding-top: 24px;
+  }
+
+  .account-profile {
+    padding: 22px;
+  }
+
+}
+
+  
+/* OVHAN GLOBAL DARK THEME */
+html.ovhan-dark,
+body.ovhan-dark {
+  background: #15171b;
+  color: #f3f4f6;
+}
+
+body.ovhan-dark .page-card,
+body.ovhan-dark .account-profile,
+body.ovhan-dark .account-panel,
+body.ovhan-dark .account-row,
+body.ovhan-dark .shop-row,
+body.ovhan-dark .account-bottom-nav {
+  background: #202329;
+  color: #f3f4f6;
+  border-color: #383c44;
+}
+
+body.ovhan-dark .shop-heading {
+  background: #191b20;
+  color: #f3f4f6;
+  border-color: #383c44;
+}
+
+body.ovhan-dark input,
+body.ovhan-dark select,
+body.ovhan-dark textarea {
+  background: #292d34;
+  color: #fff;
+  border: 1px solid #555b66;
+}
+
+body.ovhan-dark .account-arrow,
+body.ovhan-dark .profile-link {
+  color: #c4c7ce;
+}
+
+body.ovhan-dark .account-bottom-nav a {
+  color: #c4c7ce;
+}
+
+body.ovhan-dark .account-bottom-nav a.active {
+  color: #ff963e;
+}
+
+.switch-control {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 29px;
+}
+
+.switch-control input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.switch-track {
+  position: absolute;
+  inset: 0;
+  background: #b8bdc5;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.switch-track::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  left: 4px;
+  top: 4px;
+  border-radius: 50%;
+  background: white;
+  transition: transform .2s;
+}
+
+.switch-control input:checked + .switch-track {
+  background: #e87516;
+}
+
+.switch-control input:checked + .switch-track::before {
+  transform: translateX(23px);
+}
+
+.switch-control input:focus-visible + .switch-track {
+  outline: 2px solid #e87516;
+  outline-offset: 3px;
+}
+
+.theme-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  }
+
+  
+/* Ovhan Global — unified icon system */
+:root {
+  --og-icon-size: 22px;
+  --og-icon-stroke: 1.8;
+  --og-icon-color: #343b46;
+  --og-icon-active: #f47721;
+}
+
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  color: var(--og-icon-color);
+}
+
+.nav-icon svg,
+.og-icon {
+  display: block;
+  width: var(--og-icon-size);
+  height: var(--og-icon-size);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--og-icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.account-bottom-nav a {
+  color: var(--og-icon-color);
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.account-bottom-nav a.active,
+.account-bottom-nav a[aria-current="page"] {
+  color: var(--og-icon-active);
+}
+
+.account-bottom-nav a:active {
+  transform: scale(0.96);
+}
+
+.account-bottom-nav small {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+button svg,
+a svg {
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .account-bottom-nav a {
+    transition: none;
+  }
+}
+
+  
+.og-settings-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+  color: #f47721;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.og-settings-button:hover {
+  background: #fff3e8;
+  transform: rotate(12deg);
+}
+
+.og-settings-button:focus-visible {
+  outline: 3px solid #f47721;
+  outline-offset: 3px;
+}
+
+.og-settings-button .og-icon {
+  width: 23px;
+  height: 23px;
+}
+
+  
+.profile-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f47721, #ffad55);
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  object-fit: cover;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(244, 119, 33, 0.25);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+  
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head-main">
+    <a class="brand" href="#marketplace" aria-label="Ovhan Global home" data-route="marketplace">
+      <div class="brand-mark brand-mark-cart" role="img" aria-label="Shopping cart with airplane">🛒<span class="brand-plane">✈</span></div>
+      <div class="brand-name">OVHAN <span>GLOBAL</span><small>SHOP THE WORLD</small></div>
+    </a>
+    <div class="header-menu">
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="quickMenu">☰ Menu</button>
+      <div class="quick-menu" id="quickMenu">
+        <a href="#marketplace" data-route="marketplace">🏠 Marketplace</a>
+        <a href="#products" data-route="products">🛍️ Explore products</a>
+        <a href="#deals" data-route="deals">🔥 Deals & advertisements</a>
+        <button id="openCart">🛒 Shopping cart (<span id="cartCount">0</span>)</button>
+        <a href="#signin" data-route="signin">👤 Sign in</a>
+        <a href="#signup" data-route="signup">✍️ Sign up</a>
+        <a href="#account" data-route="account">👤 My Account</a>
+        <a href="#faqs" data-route="faqs">❔ Help & FAQs</a>
+        <a href="#contact" data-route="contact">💬 Contact / inquiries</a>
+      </div>
+    </div>
+    <form class="search" id="searchForm" role="search">
+      <input id="searchInput" type="search" placeholder="Search products, brands and categories..." aria-label="Search products">
+      <button aria-label="Search" type="submit">⌕</button>
+    </form>
+  </div>
+</header>
+<main class="wrap">
+  <div id="homeView" class="page-view active" data-page="marketplace">
+  <section class="hero">
+    <div class="hero-main">
+      <span class="eyebrow">YOUR GLOBAL SHOPPING DESTINATION</span>
+      <h1>Discover More.<br><span>Shop Smarter.</span></h1>
+      <p>Explore fashion, electronics, footwear and everyday essentials in one convenient place. Your next favourite find is waiting.</p>
+      <a class="primary" href="#products" data-route="products">Explore Products <span>→</span></a>
+    </div>
+    <div class="hero-side">
+      <div class="promo orange"><small>Find your next favourite</small><h2>Everyday style.<br>Easy choices.</h2><p>Explore new looks for every occasion.</p></div>
+      <div class="promo"><small>Shop with confidence</small><h2>Questions before you buy?</h2><p>Contact our team for help with products and orders.</p><button class="primary" style="margin-top:12px" id="heroHelp">Contact us →</button></div>
+    </div>
+  </section>
+
+  <section class="ad-slideshow" id="adSlideshow" aria-label="Advertisements">
+    <div class="ad-slide active"><div><span class="ad-label">Ovhan Global spotlight</span><h2>Refresh your everyday style</h2><p>Explore shirts, trousers, shoes and accessories. Ask us to confirm sizes, colours and availability.</p></div><a class="ad-cta" href="#products" data-route="products">Shop the collection →</a></div>
+    <div class="ad-slide"><div><span class="ad-label">Featured categories</span><h2>Find a look that feels like you</h2><p>Browse footwear, bags, watches and casual essentials in one convenient place.</p></div><a class="ad-cta" href="#categories" data-route="products">Browse categories →</a></div>
+    <div class="ad-slide"><div><span class="ad-label">Easy ordering</span><h2>Ready to place an order?</h2><p>Add items to your cart and send the order details to our team on WhatsApp.</p></div><a class="ad-cta" href="#products" data-route="products">Explore products →</a></div>
+    <div class="ad-dots" id="adDots"><button class="active" aria-label="Advertisement 1"></button><button aria-label="Advertisement 2"></button><button aria-label="Advertisement 3"></button></div>
+    <div class="ad-controls"><button id="adPrev" aria-label="Previous advertisement">‹</button><button id="adNext" aria-label="Next advertisement">›</button></div>
+  </section>
+
+  <section class="benefits" aria-label="Shopping benefits">
+    <div class="benefit"><div class="icon">🌍</div><div><strong>Global Selection</strong><span>Find products for your lifestyle</span></div></div>
+    <div class="benefit"><div class="icon">💬</div><div><strong>Easy Ordering</strong><span>Order support on WhatsApp</span></div></div>
+    <div class="benefit"><div class="icon">💱</div><div><strong>Two Currencies</strong><span>View UGX and USD prices</span></div></div>
+    <div class="benefit"><div class="icon">🤝</div><div><strong>Customer Support</strong><span>We are here to help</span></div></div>
+  </section>
+  <section id="categories">
+    <div class="section-head"><div><h2>Shop by Category</h2><p>Choose a category to discover products.</p></div></div>
+    <div class="category-grid" id="categoryGrid"></div>
+  </section>
+  <section id="products">
+    <div class="section-head"><div><h2 id="productsTitle">Popular Picks</h2><p id="productCountText">Explore our starter collection.</p></div></div>
+    <div class="toolbar">
+      <div class="filters" id="filters"></div>
+      <div class="sort-currency">
+        <select id="currencySelect" aria-label="Display currency"><option value="UGX">Prices: UGX</option><option value="USD">Prices: USD</option></select>
+        <select id="sortSelect" aria-label="Sort products"><option value="featured">Sort: Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option><option value="name">Name: A to Z</option></select>
+      </div>
+    </div>
+    <div class="products" id="productGrid"></div>
+  </section>
+  <section class="newsletter">
+    <div><h2>Need help choosing?</h2><p>Contact Ovhan Global for product questions and ordering support.</p></div>
+    <form id="contactForm"><input id="contactMessage" placeholder="What would you like to ask?" aria-label="Your question" required><button type="submit">Ask us</button></form>
+  </section>
+  </div>
+
+  <section class="page-view" data-page="products" id="productsPage">
+    <div class="section-head"><div><h2>Explore all products</h2><p>Search, filter and sort the Ovhan Global collection.</p></div></div>
+    <div class="toolbar">
+      <form class="search" id="pageSearchForm" style="max-width:500px;flex:1"><input id="pageSearchInput" type="search" placeholder="Search products..." aria-label="Search products on this page"><button type="submit" aria-label="Search">⌕</button></form>
+      <div class="sort-currency"><select id="pageCurrencySelect" aria-label="Display currency"><option value="UGX">Prices: UGX</option><option value="USD">Prices: USD</option></select><select id="pageSortSelect" aria-label="Sort products"><option value="featured">Sort: Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option><option value="name">Name: A to Z</option></select></div>
+    </div>
+    <div class="filters" id="pageFilters" style="margin-bottom:15px"></div>
+    <div class="products" id="pageProductGrid"></div>
+  </section>
+
+  <section class="page-view" data-page="deals">
+    <div class="page-card"><h1>Deals & advertisements</h1><p>Browse featured promotions from Ovhan Global.</p>
+      <div class="notice">Promotional banners are examples until you add confirmed offers, discount amounts and valid dates.</div>
+      <div class="ad-slideshow" id="dealsSlideshow">
+        <div class="ad-slide active"><div><span class="ad-label">Featured</span><h2>Everyday essentials</h2><p>Check the product catalogue for current listed prices and availability.</p></div><a class="ad-cta" href="#products" data-route="products">View products →</a></div>
+        <div class="ad-slide"><div><span class="ad-label">Style picks</span><h2>Fashion, footwear and more</h2><p>Discover a selection of sample listings and contact us before ordering.</p></div><a class="ad-cta" href="#products" data-route="products">Explore now →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-view" data-page="signin">
+    <div class="page-card"><h1>Sign in</h1><p>Access your Ovhan Global customer account.</p>
+      
+      <form id="signinForm">
+        <div class="field"><label for="signinEmail">Email address</label><input id="signinEmail" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="signinPassword">Password</label><input id="signinPassword" type="password" autocomplete="current-password" minlength="8" required></div>
+        <button class="form-submit" type="submit">Continue</button>
+      </form><p style="margin-top:15px">New here? <a href="#signup" data-route="signup" style="color:#b56600;font-weight:800">Create an account</a></p>
+    </div>
+  </section>
+
+<section class="page-view" data-page="account">
+  <div class="account-mobile">
+
+    
+<!-- PROFILE CARD -->
+<div class="account-profile">
+
+  <button
+    type="button"
+    id="profileAvatar"
+    class="profile-avatar"
+    aria-label="Upload profile picture"
+    title="Change profile picture">
+    O
+  </button>
+
+  <input
+    type="file"
+    id="profilePictureInput"
+    accept="image/*"
+    hidden>
+
+  <div class="profile-summary">
+    <strong id="profileDisplayName">My Profile</strong>
+
+    <button
+      type="button"
+      id="viewProfileButton"
+      class="profile-link">
+      View Profile
+    </button>
+  </div>
+
+  <button
+    type="button"
+    id="profileSettingsButton"
+    class="og-settings-button"
+    aria-label="Profile settings"
+    title="Account settings">
+
+    <svg
+      class="og-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M19.4 15a1.8 1.8 0 0 0 .36 2l.04.04-1.8 1.8-.04-.04a1.8 1.8 0 0 0-2-.36 1.8 1.8 0 0 0-1.1 1.65V20h-2.6v-.06a1.8 1.8 0 0 0-1.1-1.65 1.8 1.8 0 0 0-2 .36l-.04.04-1.8-1.8.04-.04a1.8 1.8 0 0 0 .36-2A1.8 1.8 0 0 0 6.07 13.7H6v-2.6h.07a1.8 1.8 0 0 0 1.65-1.1 1.8 1.8 0 0 0-.36-2l-.04-.04 1.8-1.8.04.04a1.8 1.8 0 0 0 2 .36A1.8 1.8 0 0 0 12.26 4.9V4h2.6v.9a1.8 1.8 0 0 0 1.1 1.66 1.8 1.8 0 0 0 2-.36l.04-.04 1.8 1.8-.04.04a1.8 1.8 0 0 0-.36 2 1.8 1.8 0 0 0 1.65 1.1h.07v2.6h-.07A1.8 1.8 0 0 0 19.4 15Z"/>
+    </svg>
+  </button>
+
+</div>
+    
+         
+<!-- SETTINGS MENU -->
+<div id="settingsMenuPanel" class="account-panel" hidden>
+  <h3>Account Settings</h3>
+  <p>Manage your Ovhan Global preferences and account.</p>
+
+  <a class="shop-row" href="#editprofile" data-route="editprofile">
+    <span class="account-line-icon">♙</span>
+    <span>Edit Profile</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#contactdetails" data-route="contactdetails">
+    <span class="account-line-icon">✉</span>
+    <span>Contact Details</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#addressesbilling" data-route="addressesbilling">
+    <span class="account-line-icon">⌖</span>
+    <span>Addresses &amp; Billing Info</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#securitypasswords" data-route="securitypasswords">
+    <span class="account-line-icon">♙</span>
+    <span>Security &amp; Passwords</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#paymentmethods" data-route="paymentmethods">
+    <span class="account-line-icon">▤</span>
+    <span>Payment Methods</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#communicationpreferences" data-route="communicationpreferences">
+    <span class="account-line-icon">♧</span>
+    <span>Communication Preferences</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#theme" data-route="theme">
+    <span class="account-line-icon">☼</span>
+    <span>Theme: Light / Dark</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#languages" data-route="languages">
+    <span class="account-line-icon">文</span>
+    <span>Languages</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#currency" data-route="currency">
+    <span class="account-line-icon">$</span>
+    <span>Switch Currency</span>
+    <span class="account-arrow">›</span>
+  </a>
+
+  <a class="shop-row" href="#privacydata" data-route="privacydata">
+    <span class="account-line-icon">♧</span>
+    <span>Privacy &amp; Data Rights</span>
+    <span class="account-arrow">›</span>
+  </a>
+</div>
+
+<!-- PROFILE DETAILS: SIGN OUT IS INSIDE MY PROFILE -->
+    
+    <div id="profileDetailsPanel" class="account-panel" hidden>
+      <h3>My Profile</h3>
+
+      <div class="field">
+        <label>Full name</label>
+        <p id="accountName">Loading...</p>
+      </div>
+
+      <div class="field">
+        <label>Email address</label>
+        <p id="accountEmail">Loading...</p>
+      </div>
+
+      <div class="field">
+        <label>Phone number</label>
+        <p id="accountPhone">Loading...</p>
+      </div>
+
+      <button class="form-submit" id="signoutButton" type="button">
+        Sign Out
+      </button>
+    </div>
+
+    <!-- ACCOUNT LINKS -->
+    <div class="account-links">
+      <button type="button" class="account-row" id="showOrdersButton">
+        <span class="account-line-icon">▤</span>
+        <span>Your Orders</span>
+        <span class="account-arrow">›</span>
+      </button>
+
+      <button type="button" class="account-row" id="showNotificationsButton">
+        <span class="account-line-icon">♧</span>
+        <span>Notifications</span>
+        <span class="notification-dot"></span>
+        <span class="account-arrow">›</span>
+      </button>
+    </div>
+
+    <!-- ORDERS PANEL -->
+    <div id="accountOrdersPanel" class="account-panel" hidden>
+      <h3>My Orders</h3>
+      <div id="customerOrders">
+        <p>Your order history will appear here.</p>
+      </div>
+      <button class="form-submit" id="refreshOrdersButton" type="button">
+        Refresh My Orders
+      </button>
+    </div>
+
+    <!-- NOTIFICATIONS PANEL -->
+    <div id="accountNotificationsPanel" class="account-panel" hidden>
+      <h3>Notifications</h3>
+      <p>Order and account updates will appear here when available.</p>
+    </div>
+
+    <!-- SHOP -->
+    <div class="shop-heading">Shop</div>
+
+    <div class="shop-links">
+      <a class="shop-row" href="#marketplace" data-route="marketplace">
+        <span class="account-line-icon">⌂</span>
+        <span>Home</span>
+        <span class="account-arrow">›</span>
+      </a>
+
+      <a class="shop-row" href="#contact" data-route="contact">
+        <span class="account-line-icon">♧</span>
+        <span>Express Shipping</span>
+        <span class="account-arrow">›</span>
+      </a>
+
+      <button type="button" class="shop-row" id="recentlyViewedButton">
+        <span class="account-line-icon">◷</span>
+        <span>Recently Viewed</span>
+        <span class="account-arrow">›</span>
+      </button>
+
+      <a class="shop-row" href="#products" data-route="products">
+        <span class="account-line-icon">▦</span>
+        <span>Categories</span>
+        <span class="account-arrow">›</span>
+      </a>
+    </div>
+
+    <!-- RECENTLY VIEWED MESSAGE -->
+    <div id="recentlyViewedPanel" class="account-panel" hidden>
+      <h3>Recently Viewed</h3>
+      <p>Your recently viewed products will appear here when viewing history is enabled.</p>
+      <a href="#products" data-route="products">Explore Products</a>
+    </div>
+
+    </div>
+</section>
+  
+<!-- EDIT PROFILE PAGE -->
+<section class="page-view" data-page="editprofile">
+  <div class="page-card">
+    <h1>Edit Profile</h1>
+    <p>Manage your personal profile information.</p>
+    <div class="field">
+      <label>Full name</label>
+      <input id="editFullName" type="text" placeholder="Enter your full name">
+    </div>
+    <div class="field">
+      <label>Phone number</label>
+      <input id="editPhone" type="tel" placeholder="Enter your phone number">
+    </div>
+    <button class="form-submit" id="saveProfileButton" type="button">Save Profile</button>
+  </div>
+</section>
+
+<!-- CONTACT DETAILS PAGE -->
+<section class="page-view" data-page="contactdetails">
+  <div class="page-card">
+    <h1>Contact Details</h1>
+    <p>Review your contact information.</p>
+    <div class="field">
+      <label>Email address</label>
+      <p id="settingsEmail">Sign in to view your account email.</p>
+    </div>
+    <div class="field">
+      <label>Phone number</label>
+      <p id="settingsPhone">Your saved phone number will appear here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ADDRESSES AND BILLING PAGE -->
+<section class="page-view" data-page="addressesbilling">
+  <div class="page-card">
+    <h1>Addresses &amp; Billing Info</h1>
+    <p>Enter your delivery and billing details.</p>
+    <div class="field">
+      <label>Delivery address</label>
+      <textarea id="savedDeliveryAddress" placeholder="Enter your delivery address"></textarea>
+    </div>
+    <div class="field">
+      <label>Billing address</label>
+      <textarea id="savedBillingAddress" placeholder="Enter your billing address"></textarea>
+    </div>
+    <button class="form-submit" id="saveAddressesButton" type="button">Save Addresses</button>
+  </div>
+</section>
+
+<!-- SECURITY PAGE -->
+<section class="page-view" data-page="securitypasswords">
+  <div class="page-card">
+    <h1>Security &amp; Passwords</h1>
+    <p>Protect your account.</p>
+    <div class="field">
+      <label>Account email</label>
+      <input id="securityEmail" type="email" placeholder="Your account email">
+    </div>
+    <button class="form-submit" id="resetPasswordButton" type="button">Send Password Reset Email</button>
+    <p id="securityMessage" role="status"></p>
+  </div>
+</section>
+
+<!-- PAYMENT METHODS PAGE -->
+<section class="page-view" data-page="paymentmethods">
+  <div class="page-card">
+    <h1>Payment Methods</h1>
+    <p>Choose how you prefer to pay for orders.</p>
+    <label><input type="checkbox" id="paymentMobileMoney"> Mobile Money</label>
+    <br><br>
+    <label><input type="checkbox" id="paymentCard"> Bank card</label>
+    <br><br>
+    <label><input type="checkbox" id="paymentBank"> Bank transfer</label>
+    <p>These preferences do not process payments or store card details.</p>
+    <button class="form-submit" id="savePaymentPreferencesButton" type="button">Save Preferences</button>
+  </div>
+</section>
+
+<!-- COMMUNICATION PREFERENCES PAGE -->
+<section class="page-view" data-page="communicationpreferences">
+  <div class="page-card">
+    <h1>Communication Preferences</h1>
+    <p>Choose the updates you want to receive.</p>
+    <label><input type="checkbox" id="emailUpdates"> Email updates</label>
+    <br><br>
+    <label><input type="checkbox" id="orderUpdates" checked> Order updates</label>
+    <br><br>
+    <label><input type="checkbox" id="promotionalUpdates"> Promotional messages</label>
+    <button class="form-submit" id="saveCommunicationButton" type="button">Save Preferences</button>
+  </div>
+</section>
+
+<!-- THEME PAGE -->
+<section class="page-view" data-page="theme">
+  <div class="page-card">
+    <h1>Theme Control</h1>
+    <p>Choose the appearance of Ovhan Global.</p>
+    <div class="theme-toggle-row">
+      <span id="themeStatus">Light mode</span>
+      <label class="switch-control">
+        <input type="checkbox" id="themeToggle">
+        <span class="switch-track"></span>
+      </label>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES PAGE -->
+<section class="page-view" data-page="languages">
+  <div class="page-card">
+    <h1>Languages</h1>
+    <p>Select your preferred language.</p>
+    <div class="field">
+      <label for="languageSelect">Website language</label>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="sw">Kiswahili (Swahili)</option>
+        <option value="ar">العربية (Arabic)</option>
+        <option value="fr">Français (French)</option>
+        <option value="es">Español (Spanish)</option>
+        <option value="pt">Português (Portuguese)</option>
+        <option value="de">Deutsch (German)</option>
+        <option value="zh">中文 (Chinese)</option>
+        <option value="hi">हिन्दी (Hindi)</option>
+        <option value="rw">Ikinyarwanda (Kinyarwanda)</option>
+        <option value="lg">Luganda</option>
+      </select>
+    </div>
+    <p id="languageMessage" role="status">English selected.</p>
+    <p>Changing the selection saves your preference. Full website translation requires translated text for each page.</p>
+  </div>
+</section>
+
+<!-- CURRENCY PAGE -->
+<section class="page-view" data-page="currency">
+  <div class="page-card">
+    <h1>Currency</h1>
+    <p>Choose how prices are displayed.</p>
+    <div class="field">
+      <label for="currencySelect">Display currency</label>
+      <select id="currencySelect">
+        <option value="UGX">Ugandan Shillings (UGX)</option>
+        <option value="USD">US Dollars (USD)</option>
+      </select>
+    </div>
+    <button class="form-submit" id="saveCurrencyButton" type="button">Apply Currency</button>
+    <p id="currencyMessage" role="status"></p>
+  </div>
+</section>
+
+<!-- PRIVACY AND DATA RIGHTS PAGE -->
+<section class="page-view" data-page="privacydata">
+  <div class="page-card">
+    <h1>Privacy &amp; Data Rights</h1>
+    <p>Manage local preferences and learn about your account data.</p>
+    <h3>Reset preferences</h3>
+    <p>Restore your theme, language and currency to their default settings.</p>
+    <button class="form-submit" id="resetPreferencesButton" type="button">Reset Preferences</button>
+    <p id="resetMessage" role="status"></p>
+    <hr>
+    <h3>Clear local website data</h3>
+    <p>This will clear saved website preferences on this device. It will not delete your online account or order records.</p>
+    <button class="form-submit" id="clearLocalDataButton" type="button">Clear Local Preferences</button>
+    <hr>
+    <h3>Account data</h3>
+    <p>Deleting account records is different from resetting preferences. Contact customer support for help with account data requests.</p>
+    <a href="#contact" data-route="contact">Contact Support</a>
+  </div>
+</section>
+  
+  <section class="page-view" data-page="signup">
+    <div class="page-card"><h1>Create your account</h1><p>Register to make future shopping easier.</p>
+      
+      <form id="signupForm">
+        <div class="form-grid">
+          <div class="field"><label for="signupName">Full name</label><input id="signupName" autocomplete="name" required></div>
+          <div class="field"><label for="signupPhone">Phone number</label><input id="signupPhone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="signupEmail">Email address</label><input id="signupEmail" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="signupPassword">Create password</label><input id="signupPassword" type="password" minlength="8" autocomplete="new-password" required></div>
+        </div>
+        <button class="form-submit" type="submit">Create account</button>
+      </form><p style="margin-top:15px">Already registered? <a href="#signin" data-route="signin" style="color:#b56600;font-weight:800">Sign in</a></p>
+    </div>
+  </section>
+
+  <section class="page-view" data-page="faqs">
+    <div class="page-card"><h1>Help & frequently asked questions</h1><p>Helpful information for shopping with Ovhan Global.</p>
+      <details class="faq-item"><summary>How do I place an order?</summary><p>Browse the product catalogue, add items to your cart, then choose the WhatsApp order option. Review the message and send it to our team.</p></details>
+      <details class="faq-item"><summary>Are the products and prices confirmed?</summary><p>The current catalogue contains sample listings. Contact us to confirm real stock, product details, final prices and delivery charges before paying.</p></details>
+      <details class="faq-item"><summary>Can I view prices in UGX and USD?</summary><p>Yes. Use the currency selector on the product catalogue. The conversion is illustrative and must be updated to an agreed current rate before launch.</p></details>
+      <details class="faq-item"><summary>Can I pay using MTN MoMo or Airtel Money?</summary><p>These payment methods are planned, but this demo does not process payments. Only pay using instructions confirmed directly by Ovhan Global through a trusted process.</p></details>
+      <details class="faq-item"><summary>Can I pay by international card?</summary><p>Card payments are planned for a later stage after a suitable payment provider and secure checkout are connected.</p></details>
+      <details class="faq-item"><summary>How do I check delivery?</summary><p>Include your delivery location in your WhatsApp order. Our team should confirm whether delivery is available, the cost and the estimated timing.</p></details>
+      <details class="faq-item"><summary>How do I contact customer support?</summary><p>Open the menu and select Contact / inquiries, or use the WhatsApp support button.</p></details>
+    </div>
+  </section>
+
+  <section class="page-view" data-page="contact" id="contactPage">
+    <div class="page-card"><h1>Contact & inquiries</h1><p>Ask about product details, availability, delivery or an existing order.</p>
+      <form id="contactPageForm">
+        <div class="field"><label for="pageContactName">Your name</label><input id="pageContactName" required></div>
+        <div class="field"><label for="pageContactPhone">Phone number (optional)</label><input id="pageContactPhone" type="tel"></div>
+        <div class="field"><label for="pageContactMessage">Your message</label><textarea id="pageContactMessage" required></textarea></div>
+        <button class="form-submit" type="submit">Send inquiry on WhatsApp</button>
+      </form>
+      <div class="notice">This sends your message to WhatsApp. It does not create a ticket in a support database.</div>
+    </div>
+  </section>
+
+  <section class="page-view" data-page="cartpage">
+    <div class="page-card"><h1>Your shopping cart</h1><p>Review items and quantities before preparing your order.</p><div id="fullCartMount"></div><button class="form-submit" id="pageCheckout">Continue to order</button></div>
+  </section>
+</main>
+<footer id="footer"><div class="wrap">
+  <div class="footer-grid">
+    <div><a class="brand" href="#"><div class="brand-mark brand-mark-cart" role="img" aria-label="Shopping cart with airplane">🛒<span class="brand-plane">✈</span></div><div class="brand-name">OVHAN <span>GLOBAL</span><small>SHOP THE WORLD</small></div></a><p style="margin-top:14px;max-width:400px">A growing online shopping destination for fashion, footwear, bags, watches and everyday essentials. Contact us for availability, delivery and order support.</p></div>
+    <div><h3>Shop</h3><div class="footer-links"><a href="#categories">All categories</a><a href="#products">Popular picks</a><a href="#products">Special offers</a></div></div>
+    <div><h3>Customer care</h3><div class="footer-links"><a href="#" id="footerHelp">Contact support</a><a href="#" id="footerWhatsApp">WhatsApp ordering</a><a href="#products">Product availability</a></div></div>
+  </div>
+  <div class="copyright"><div>© <span id="year"></span> Ovhan Global. All rights reserved.</div><span>Prices, availability and delivery are confirmed when you place an order.</span></div>
+</div></footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="cart-head"><h2>Your shopping cart</h2><button class="close" id="closeCart" aria-label="Close cart">×</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot"><div class="total-line"><span>Subtotal</span><span id="cartSubtotal">UGX 0</span></div><div class="note">Delivery charges and final availability are confirmed with you before payment.</div><button class="checkout" id="checkoutBtn" style="margin-top:13px">Continue to order on WhatsApp</button></div>
+</aside>
+
+<div class="modal" id="orderModal">
+  <div class="modal-card">
+    <div class="modal-top"><h2>Delivery details</h2><button class="close" id="closeOrder">×</button></div>
+    <p style="color:var(--muted);font-size:.9rem">Enter your details to prepare an order message. No payment is taken on this page.</p>
+    <form id="orderForm">
+      <div class="field"><label for="customerName">Full name *</label><input id="customerName" required autocomplete="name"></div>
+      <div class="field"><label for="customerPhone">Phone number *</label><input id="customerPhone" required type="tel" autocomplete="tel" placeholder="+256..."></div>
+      <div class="field"><label for="customerAddress">Delivery location / address *</label><textarea id="customerAddress" required autocomplete="street-address"></textarea></div>
+      <div class="field"><label for="customerPayment">Preferred payment method</label><select id="customerPayment"><option>Discuss with seller</option><option>MTN Mobile Money (to be confirmed)</option><option>Airtel Money (to be confirmed)</option><option>Bank card (availability to be confirmed)</option></select></div>
+      <div class="notice">Payment choices are requests only. Mobile Money and card payments are not processed by this demo website. Confirm payment instructions directly with the seller.</div>
+      <button class="checkout" type="submit">Prepare WhatsApp order</button>
+    </form>
+  </div>
+</div>
+<div class="modal" id="detailsModal"><div class="modal-card"><div class="modal-top"><h2 id="detailTitle">Product details</h2><button class="close" id="closeDetails">×</button></div><div id="detailContent"></div></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* Ovhan Global original starter storefront.
+   Replace sample product data and images with real stock before launch.
+   Payment processing requires a trusted provider and server-side integration. */
+const WHATSAPP_NUMBER = "256750941062"; // Ovhan Global business WhatsApp, international format without +
+const USD_TO_UGX = 3800; // Illustrative display rate only; update to a current agreed rate before launch.
+const categories = [
+  {name:"All",emoji:"🛍️"},{name:"Fashion",emoji:"👕"},{name:"Shoes",emoji:"👟"},{name:"Bags",emoji:"👜"},
+  {name:"Watches",emoji:"⌚"},{name:"Sweaters",emoji:"🧥"},{name:"Trousers",emoji:"👖"},{name:"Accessories",emoji:"🎒"}
+];
+const products = [
+ {id:1,name:"Classic Everyday T-Shirt",category:"Fashion",price:35000,oldPrice:45000,rating:4.8,badge:"Popular",desc:"A versatile everyday T-shirt. Confirm available sizes and colours before ordering.",image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85"},
+ {id:2,name:"Casual Cotton Shirt",category:"Fashion",price:65000,oldPrice:80000,rating:4.7,badge:"Great find",desc:"A smart-casual shirt suitable for everyday wear. Ask us about available sizes.",image:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=85"},
+ {id:3,name:"Comfort Sneakers",category:"Shoes",price:95000,oldPrice:115000,rating:4.6,badge:"Popular",desc:"Everyday sneakers. Confirm sizes and stock availability before purchase.",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"},
+ {id:4,name:"Everyday Backpack",category:"Bags",price:78000,oldPrice:0,rating:4.5,badge:"New pick",desc:"A practical bag for everyday essentials. Ask us about colours and dimensions.",image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=85"},
+ {id:5,name:"Minimal Wristwatch",category:"Watches",price:120000,oldPrice:145000,rating:4.7,badge:"Featured",desc:"A clean, versatile watch style. Confirm model, features and availability before ordering.",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85"},
+ {id:6,name:"Soft Knit Sweater",category:"Sweaters",price:85000,oldPrice:0,rating:4.4,badge:"Seasonal",desc:"A comfortable knitwear option. Confirm colour and sizing with us.",image:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=85"},
+ {id:7,name:"Classic Casual Trousers",category:"Trousers",price:72000,oldPrice:89000,rating:4.5,badge:"Good value",desc:"Casual trousers for daily wear. Ask about available waist sizes and colours.",image:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=700&q=85"},
+ {id:8,name:"Crossbody Everyday Bag",category:"Bags",price:56000,oldPrice:0,rating:4.3,badge:"New pick",desc:"A compact bag for daily essentials. Check stock and colour options before ordering.",image:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=700&q=85"},
+ {id:9,name:"Lightweight Running Shoes",category:"Shoes",price:110000,oldPrice:135000,rating:4.6,badge:"Featured",desc:"Lightweight sports-inspired footwear. Confirm size and availability with the seller.",image:"https://images.unsplash.com/photo- running-placeholder?auto=format&fit=crop&w=700&q=85"},
+ {id:10,name:"Smart Casual Jacket",category:"Sweaters",price:135000,oldPrice:160000,rating:4.5,badge:"Popular",desc:"A versatile outer layer. Ask us to confirm sizing, colours and stock.",image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=85"},
+ {id:11,name:"Everyday Tote Bag",category:"Bags",price:49000,oldPrice:0,rating:4.4,badge:"Great find",desc:"A practical tote for everyday use. Confirm available colours and dimensions.",image:"https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=700&q=85"},
+ {id:12,name:"Classic Accessories Set",category:"Accessories",price:42000,oldPrice:0,rating:4.2,badge:"New pick",desc:"A simple accessory option. Contact us to confirm exact contents and availability.",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85"}
+];
+// The intentionally unavailable demo image above is replaced with a safe fallback on image error.
+products[8].image = "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85";
+let activeCategory="All", query="", currency="UGX", cart=JSON.parse(localStorage.getItem("ovhanCart")||"{}"), wishlist=JSON.parse(localStorage.getItem("ovhanWishlist")||"[]");
+const $=s=>document.querySelector(s);
+function formatPrice(ugx){return currency==="UGX"?"UGX "+Math.round(ugx).toLocaleString("en-UG"):"$"+(ugx/USD_TO_UGX).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
+function otherPrice(ugx){return currency==="UGX"?"≈ $"+(ugx/USD_TO_UGX).toFixed(2):"≈ UGX "+Math.round(ugx).toLocaleString("en-UG");}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2400)}
+function renderCategories(){$("#categoryGrid").innerHTML=categories.filter(c=>c.name!=="All").map(c=>`<button class="category ${activeCategory===c.name?"active":""}" data-category="${c.name}"><span class="emoji">${c.emoji}</span><strong>${c.name}</strong></button>`).join("");$("#filters").innerHTML=categories.map(c=>`<button class="filter ${activeCategory===c.name?"active":""}" data-filter="${c.name}">${c.name==="All"?"All products":c.name}</button>`).join("");}
+function visibleProducts(){let list=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(`${p.name} ${p.category} ${p.desc}`).toLowerCase().includes(query.toLowerCase()));const sort=$("#sortSelect").value;if(sort==="low")list.sort((a,b)=>a.price-b.price);if(sort==="high")list.sort((a,b)=>b.price-a.price);if(sort==="name")list.sort((a,b)=>a.name.localeCompare(b.name));return list;}
+function renderProducts(){const list=visibleProducts();$("#productCountText").textContent=`${list.length} product${list.length===1?"":"s"} shown · sample listings — confirm stock before ordering`;$("#productsTitle").textContent=activeCategory==="All"?"Popular Picks":activeCategory;$("#productGrid").innerHTML=list.length?list.map(p=>`<article class="product"><div class="product-media"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x500/e9eef4/19385e?text=Ovhan+Global'"><span class="badge">${p.badge}</span><button class="wish" data-wish="${p.id}" aria-label="Save ${p.name}">${wishlist.includes(p.id)?"♥":"♡"}</button></div><div class="product-info"><h3>${p.name}</h3><div class="rating">★★★★★ <span>${p.rating} · sample rating</span></div><div class="price">${formatPrice(p.price)}</div><div class="currency-alt">${otherPrice(p.price)}</div><div class="product-actions"><button class="add" data-add="${p.id}">＋ Add to cart</button><button class="details" data-details="${p.id}">View</button></div></div></article>`).join(""):`<div class="empty">No products match your search. Try another keyword or category.</div>`;}
+function saveCart(){localStorage.setItem("ovhanCart",JSON.stringify(cart));renderCartCount();renderCart();}
+function renderCartCount(){$("#cartCount").textContent=Object.values(cart).reduce((a,n)=>a+n,0);}
+function cartSubtotal(){
+  return Object.entries(cart).reduce((sum,[id,qty])=>{
+    const p = products.find(x => String(x.id) === String(id));
+    return sum + (p ? p.price * qty : 0);
+  },0);
+}
+function renderCart() {
+  const entries = Object.entries(cart).filter(([id, q]) =>
+    q > 0 && products.some(p => String(p.id) === String(id))
+  );
+
+  $("#cartItems").innerHTML = entries.length
+    ? entries.map(([id, q]) => {
+        const p = products.find(x => String(x.id) === String(id));
+
+        return `
+          <div class="cart-row">
+            <img src="${p.image}" alt="${p.name}"
+              onerror="this.onerror=null;this.src='https://placehold.co/100x100/e9eef4/19385e?text=OG'">
+            <div>
+              <h4>${p.name}</h4>
+              <p>${formatPrice(p.price * q)}</p>
+              <div class="qty">
+                <button data-qty="${id}" data-delta="-1">−</button>
+                <span>${q}</span>
+                <button data-qty="${id}" data-delta="1">+</button>
+                <button class="remove" data-remove="${id}">Remove</button>
+              </div>
+            </div>
+          </div>`;
+      }).join("")
+    : `<div class="empty">Your cart is empty.<br>Browse products and add something you like.</div>`;
+
+  $("#cartSubtotal").textContent = formatPrice(cartSubtotal());
+  $("#checkoutBtn").disabled = !entries.length;
+  $("#checkoutBtn").style.opacity = entries.length ? 1 : 0.55;
+}
+function openCart(){renderCart();$("#overlay").classList.add("show");$("#cartDrawer").classList.add("show")}
+function closeCart(){$("#overlay").classList.remove("show");$("#cartDrawer").classList.remove("show")}
+
+async function openOrder() {
+  if (!Object.keys(cart).length) {
+    toast("Your cart is empty.");
+    return;
+  }
+
+  if (!window.ovhanSupabase) {
+    toast("Login service unavailable. Please try again.");
+    return;
+  }
+
+  const { data, error } = await window.ovhanSupabase.auth.getSession();
+
+  if (error) {
+    toast("Could not verify your account. Please try again.");
+    return;
+  }
+
+  if (!data.session) {
+    closeCart();
+    window.location.hash = "signin";
+    toast("Please sign in or create an account before ordering.");
+    return;
+  }
+
+  closeCart();
+  $("#orderModal").classList.add("show");
+}
+  
+function helpWhatsApp(message="Hello Ovhan Global, I need help with shopping."){const url=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;window.open(url,"_blank","noopener,noreferrer")}
+function showDetails(id){const p=products.find(x=>String(x.id)===String(id));;if(!p)return;$("#detailTitle").textContent=p.name;$("#detailContent").innerHTML=`<img src="${p.image}" alt="${p.name}" style="width:100%;max-height:260px;object-fit:cover;border-radius:9px;background:#edf1f5" onerror="this.src='https://placehold.co/600x400/e9eef4/19385e?text=Ovhan+Global'"><p style="font-size:1.25rem;font-weight:900;margin-top:12px">${formatPrice(p.price)} <span style="font-size:.85rem;color:var(--muted);font-weight:400">${otherPrice(p.price)}</span></p><p style="margin:10px 0">${p.desc}</p><button class="add" style="width:100%" data-add="${p.id}">＋ Add to cart</button>`;$("#detailsModal").classList.add("show")}
+function setCategory(name){activeCategory=name;renderCategories();renderProducts();document.querySelector("#products").scrollIntoView({behavior:"smooth",block:"start"})}
+document.addEventListener("click",e=>{const cat=e.target.closest("[data-category]");if(cat)setCategory(cat.dataset.category);const filter=e.target.closest("[data-filter]");if(filter)setCategory(filter.dataset.filter);const nav=e.target.closest("[data-nav-category]");if(nav){e.preventDefault();setCategory(nav.dataset.navCategory)}const add=e.target.closest("[data-add]");if(add){const id=add.dataset.add;;cart[id]=(cart[id]||0)+1;saveCart();toast("Added to your cart.");}const wish=e.target.closest("[data-wish]");if(wish){const id=Number(wish.dataset.wish);wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];localStorage.setItem("ovhanWishlist",JSON.stringify(wishlist));renderProducts();toast(wishlist.includes(id)?"Saved to wishlist.":"Removed from wishlist.");}const detail=e.target.closest("[data-details]");if(detail)showDetails(detail.dataset.details);const qty=e.target.closest("[data-qty]");if(qty){const id=qty.dataset.qty;cart[id]=(cart[id]||0)+Number(qty.dataset.delta);if(cart[id]<=0)delete cart[id];saveCart()}const rem=e.target.closest("[data-remove]");if(rem){delete cart[rem.dataset.remove];saveCart();toast("Item removed.")}});
+$("#searchForm").addEventListener("submit",e=>{e.preventDefault();query=$("#searchInput").value.trim();renderProducts();if(location.hash!=="#marketplace")location.hash="#marketplace";showRoute("marketplace");setTimeout(()=>$("#products").scrollIntoView({behavior:"smooth"}),60)});
+$("#searchInput").addEventListener("input",()=>{query=$("#searchInput").value.trim();renderProducts()});
+$("#currencySelect").addEventListener("change",e=>{currency=e.target.value;renderProducts();renderCart()});
+$("#sortSelect").addEventListener("change",renderProducts);
+$("#openCart").addEventListener("click",openCart);$("#closeCart").addEventListener("click",closeCart);$("#overlay").addEventListener("click",closeCart);
+$("#checkoutBtn").addEventListener("click",openOrder);$("#closeOrder").addEventListener("click",()=>$("#orderModal").classList.remove("show"));$("#closeDetails").addEventListener("click",()=>$("#detailsModal").classList.remove("show"));
+$("#orderForm").addEventListener("submit",e=>{e.preventDefault();const name=$("#customerName").value.trim(),phone=$("#customerPhone").value.trim(),address=$("#customerAddress").value.trim(),payment=$("#customerPayment").value;let lines=Object.entries(cart).map(([id,q])=>{const p=products.find(x=>x.id===Number(id));return p?`- ${p.name} x${q}: ${formatPrice(p.price*q)}`:""}).filter(Boolean);const msg=`Hello Ovhan Global! I would like to place an order.\n\nCustomer: ${name}\nPhone: ${phone}\nDelivery location: ${address}\nPreferred payment: ${payment}\n\nItems:\n${lines.join("\n")}\n\nSubtotal: ${formatPrice(cartSubtotal())}\nOther currency: ${currency==="UGX"?"USD":"UGX"} approximate display only\n\nPlease confirm stock, delivery cost and secure payment instructions before I pay.`;const url=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;window.open(url,"_blank","noopener,noreferrer");$("#orderModal").classList.remove("show");toast("Order message prepared. Please send it in WhatsApp.");});
+function contactFromForm(e){e.preventDefault();const msg=$("#contactMessage").value.trim();if(msg)helpWhatsApp("Hello Ovhan Global, I have a question:\n"+msg)}
+$("#contactForm")?.addEventListener("submit",contactFromForm);$("#helpBtn")?.addEventListener("click",()=>helpWhatsApp());$("#heroHelp")?.addEventListener("click",()=>helpWhatsApp());$("#footerHelp")?.addEventListener("click",e=>{e.preventDefault();helpWhatsApp()});$("#footerWhatsApp")?.addEventListener("click",e=>{e.preventDefault();helpWhatsApp()});
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("show")}));
+$("#year").textContent=new Date().getFullYear();renderCategories();renderProducts();renderCartCount();renderCart();
+
+// Single-file page navigation: each page has its own hash route.
+
+const routeNames = [
+  "marketplace",
+  "products",
+  "deals",
+  "signin",
+  "signup",
+  "account",
+  "faqs",
+  "contact",
+  "cartpage",
+  "editprofile",
+  "contactdetails",
+  "addressesbilling",
+  "securitypasswords",
+  "paymentmethods",
+  "communicationpreferences",
+  "theme",
+  "languages",
+  "currency",
+  "privacydata"
+];
+  
+function showRoute(route){
+  if(!routeNames.includes(route)) route="marketplace";
+  document.querySelectorAll("[data-page]").forEach(el=>el.classList.toggle("active",el.dataset.page===route));
+  document.querySelectorAll("[data-route]").forEach(el=>el.classList.toggle("route-active",el.dataset.route===route));
+  const menu=$("#quickMenu"); if(menu)menu.classList.remove("open");
+  const toggle=$("#menuToggle"); if(toggle)toggle.setAttribute("aria-expanded","false");
+  if(route==="products"){if($("#pageCurrencySelect"))$("#pageCurrencySelect").value=currency;renderProductPage();}
+  if(route==="cartpage"){renderFullCart();}
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+let pageCategory="All", pageQuery="";
+function renderProductPage(){
+ const filter=$("#pageFilters"), grid=$("#pageProductGrid"); if(!filter||!grid)return;
+ filter.innerHTML=categories.map(c=>`<button class="filter ${pageCategory===c.name?"active":""}" data-pfilter="${c.name}">${c.name==="All"?"All products":c.name}</button>`).join("");
+ let list=products.filter(p=>(pageCategory==="All"||p.category===pageCategory)&&(`${p.name} ${p.category} ${p.desc}`).toLowerCase().includes(pageQuery.toLowerCase()));
+ const sort=$("#pageSortSelect")?.value||"featured";
+ if(sort==="low")list.sort((a,b)=>a.price-b.price);if(sort==="high")list.sort((a,b)=>b.price-a.price);if(sort==="name")list.sort((a,b)=>a.name.localeCompare(b.name));
+ grid.innerHTML=list.length?list.map(p=>`<article class="product"><div class="product-media"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x500/e9eef4/19385e?text=Ovhan+Global'"><span class="badge">${p.badge}</span><button class="wish" data-wish="${p.id}" aria-label="Save ${p.name}">${wishlist.includes(p.id)?"♥":"♡"}</button></div><div class="product-info"><h3>${p.name}</h3><div class="rating">★★★★★ <span>${p.rating} · sample rating</span></div><div class="price">${formatPrice(p.price)}</div><div class="currency-alt">${otherPrice(p.price)}</div><div class="product-actions"><button class="add" data-add="${p.id}">＋ Add to cart</button><button class="details" data-details="${p.id}">View</button></div></div></article>`).join(""):`<div class="empty">No products match your search. Try another keyword or category.</div>`;
+}
+function renderFullCart(){
+ const mount=$("#fullCartMount"); if(!mount)return;
+ const entries=Object.entries(cart).filter(([id,q])=>q>0&&products.some(p=>p.id===Number(id)));
+ mount.innerHTML=entries.length?entries.map(([id,q])=>{const p=products.find(x=>x.id===Number(id));return `<div class="cart-row"><img src="${p.image}" alt=""><div><h4>${p.name}</h4><p>${formatPrice(p.price*q)}</p><div class="qty"><button data-qty="${id}" data-delta="-1">−</button><span>${q}</span><button data-qty="${id}" data-delta="1">+</button><button class="remove" data-remove="${id}">Remove</button></div></div></div>`}).join(""):`<div class="empty">Your cart is empty. <a href="#products" data-route="products">Explore products</a>.</div>`;
+}
+window.addEventListener("hashchange",()=>showRoute(location.hash.slice(1)||"marketplace"));
+$("#menuToggle").addEventListener("click",()=>{const m=$("#quickMenu"),open=!m.classList.contains("open");m.classList.toggle("open",open);$("#menuToggle").setAttribute("aria-expanded",String(open))});
+  document.addEventListener("click",(event)=>{
+const menu=$("#quickMenu");
+const toggle=$("#menuToggle");
+if(!menu||!toggle)return;
+
+if(!menu.contains(event.target)&&!toggle.contains(event.target)){
+menu.classList.remove("open");
+toggle.setAttribute("aria-expanded","false");
+}
+});
+document.addEventListener("click",e=>{const r=e.target.closest("[data-route]");if(r){const route=r.dataset.route;if(route){e.preventDefault();location.hash="#"+route;showRoute(route)}}});
+$("#signinForm").addEventListener("submit", async (e) => {
+e.preventDefault();
+
+const email = $("#signinEmail").value.trim();
+const password = $("#signinPassword").value;
+const button = $("#signinForm").querySelector('[type="submit"]');
+
+if (typeof ovhanSupabase === "undefined") {
+toast("Authentication service is unavailable. Please try again.");
+return;
+}
+
+button.disabled = true;
+button.textContent = "Signing in...";
+
+try {
+const { error } = await ovhanSupabase.auth.signInWithPassword({
+email,
+password
+});
+
+if (error) throw error;
+
+$("#signinForm").reset();
+toast("Welcome back! You are signed in.");
+location.hash = "#home";
+showRoute("home");
+
+} catch (error) {
+toast(error.message || "Sign-in failed. Please check your email and password.");
+} finally {
+button.disabled = false;
+button.textContent = "Continue";
+}
+});
+$("#signupForm").addEventListener("submit", async (e) => {
+e.preventDefault();
+
+const form = $("#signupForm");
+const fullName = $("#signupName").value.trim();
+const phone = $("#signupPhone").value.trim();
+const email = $("#signupEmail").value.trim();
+const password = $("#signupPassword").value;
+const button = form.querySelector('[type="submit"]');
+
+if (typeof ovhanSupabase === "undefined") {
+toast("Authentication service is unavailable. Please try again.");
+return;
+}
+
+if (password.length < 8) {
+toast("Your password must contain at least 8 characters.");
+return;
+}
+
+button.disabled = true;
+button.textContent = "Creating account...";
+
+try {
+const { data, error } = await ovhanSupabase.auth.signUp({
+email,
+password,
+options: {
+data: {
+full_name: fullName,
+phone: phone
+}
+}
+});
+
+if (error) throw error;
+
+form.reset();
+
+if (data.session) {
+  toast("Your account has been created successfully!");
+  location.hash = "#home";
+  showRoute("home");
+} else {
+  toast("Account created! Please check your email for a verification link before signing in.");
+}
+
+} catch (error) {
+toast(error.message || "Registration failed. Please try again.");
+} finally {
+button.disabled = false;
+button.textContent = "Create account";
+}
+});
+$("#contactPageForm").addEventListener("submit",e=>{e.preventDefault();const name=$("#pageContactName").value.trim(),phone=$("#pageContactPhone").value.trim(),msg=$("#pageContactMessage").value.trim();helpWhatsApp(`Hello Ovhan Global. Inquiry from ${name}${phone?" ("+phone+")":""}:\n${msg}`)});
+$("#pageCheckout")?.addEventListener("click",openOrder);
+
+$("#pageSearchForm")?.addEventListener("submit",e=>{e.preventDefault();pageQuery=$("#pageSearchInput").value.trim();renderProductPage()});
+$("#pageSearchInput")?.addEventListener("input",()=>{pageQuery=$("#pageSearchInput").value.trim();renderProductPage()});
+$("#pageSortSelect")?.addEventListener("change",renderProductPage);
+$("#pageCurrencySelect")?.addEventListener("change",e=>{currency=e.target.value;if($("#currencySelect"))$("#currencySelect").value=currency;renderProducts();renderProductPage();renderCart()});
+document.addEventListener("click",e=>{const pf=e.target.closest("[data-pfilter]");if(pf){pageCategory=pf.dataset.pfilter;renderProductPage()}});
+
+// Advertisement slideshow, with manual arrows and dots.
+let adIndex=0;
+function showAd(i){const slides=[...document.querySelectorAll("#adSlideshow .ad-slide")],dots=[...document.querySelectorAll("#adDots button")];if(!slides.length)return;adIndex=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle("active",n===adIndex));dots.forEach((d,n)=>d.classList.toggle("active",n===adIndex))}
+$("#adPrev").addEventListener("click",()=>showAd(adIndex-1));$("#adNext").addEventListener("click",()=>showAd(adIndex+1));
+$("#adDots").addEventListener("click",e=>{const b=e.target.closest("button");if(b)showAd([...$("#adDots").children].indexOf(b))});
+setInterval(()=>showAd(adIndex+1),3000); // Automatically advance every 3 seconds.
+// When adding/removing cart items, also refresh the dedicated cart page.
+const originalSaveCart=saveCart;
+saveCart=function(){originalSaveCart();renderFullCart()};
+
+showRoute(location.hash.slice(1)||"marketplace");
+</script>
+  <!-- Supabase connection -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const SUPABASE_URL = "https://lewdjmdeukcekzwgwavo.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_uwC4i59SP3Gpj5BtVZXyYg_c6-DeYOC";
+
+  window.ovhanSupabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+</script>
+  <script>
+async function loadSupabaseProducts() {
+  try {
+    const { data, error } = await ovhanSupabase
+      .from("products")
+      .select("*")
+      .eq("is_active", true);
+
+    if (error) {
+      console.error("Product loading error:", error.message);
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      console.log("No active Supabase products found.");
+      return;
+    }
+
+    const databaseProducts = data.map(item => ({
+      id: "db-" + item.id,
+      name: item.name,
+      category: item.category,
+      price: Number(item.price_ugx || 0),
+      oldPrice: 0,
+      rating: 4.5,
+      badge: "New arrival",
+      desc: item.description || "Contact us for more information.",
+      image: item.image_url || "",
+      stock: Number(item.stock_quantity || 0),
+      price_usd: Number(item.price_usd || 0)
+    }));
+
+    const existingIds = new Set(
+      products.map(p => String(p.id))
+    );
+
+    databaseProducts.forEach(item => {
+      if (!existingIds.has(String(item.id))) {
+        products.push(item);
+      }
+    });
+
+    renderProducts();
+    renderProductPage();
+
+    console.log("Supabase products loaded:", databaseProducts.length);
+  } catch (error) {
+    console.error("Could not load products:", error);
+  }
+}
+
+loadSupabaseProducts();
+  </script>
+  <script>
+async function loadCustomerAccount() {
+  const client = window.ovhanSupabase;
+  if (!client) {
+    document.getElementById("accountName").textContent = "Connection unavailable";
+    return;
+  }
+
+  try {
+    const { data: { user }, error } = await client.auth.getUser();
+
+    if (error || !user) {
+      document.getElementById("accountName").textContent = "Please sign in to view your account.";
+      document.getElementById("accountEmail").textContent = "Not signed in";
+      document.getElementById("accountPhone").textContent = "Not signed in";
+      return;
+    }
+
+    const details = user.user_metadata || {};
+
+    document.getElementById("accountName").textContent =
+      details.full_name || "Name not provided";
+
+    document.getElementById("accountEmail").textContent =
+      user.email || "No email available";
+
+    document.getElementById("accountPhone").textContent =
+      details.phone || "Phone number not provided";
+
+  } catch (error) {
+    console.error("Account loading error:", error);
+    document.getElementById("accountName").textContent =
+      "Unable to load account details.";
+  }
+}
+
+document.addEventListener("click", function(event) {
+  const accountLink = event.target.closest('[data-route="account"]');
+
+  if (accountLink) {
+    loadCustomerAccount();
+  }
+});
+
+document.getElementById("signoutButton")?.addEventListener("click", async function() {
+  const client = window.ovhanSupabase;
+
+  if (!client) {
+    alert("Authentication service is unavailable.");
+    return;
+  }
+
+  this.disabled = true;
+  this.textContent = "Signing out...";
+
+  try {
+    const { error } = await client.auth.signOut();
+
+    if (error) throw error;
+
+    alert("You have signed out successfully.");
+    location.hash = "#signin";
+    loadCustomerAccount();
+
+  } catch (error) {
+    alert(error.message || "Unable to sign out. Please try again.");
+  } finally {
+    this.disabled = false;
+    this.textContent = "Sign Out";
+  }
+});
+  </script>
+  <script>
+  async function loadCustomerOrders() {
+  const container = document.getElementById("customerOrders");
+  if (!container) return;
+
+  container.innerHTML = "<p>Loading your orders...</p>";
+
+  try {
+    const { data: sessionData, error: sessionError } =
+      await ovhanSupabase.auth.getUser();
+
+    if (sessionError || !sessionData.user) {
+      container.innerHTML =
+        '<p>Please sign in to view your orders.</p>';
+      return;
+    }
+
+    const user = sessionData.user;
+
+    const { data: orders, error } = await ovhanSupabase
+      .from("orders")
+      .select(`
+        id,
+        created_at,
+        status,
+        payment_status,
+        total_amount,
+        currency,
+        delivery_address,
+        order_items (
+          product_name,
+          quantity,
+          unit_price,
+          line_total
+        )
+      `)
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+
+    if (!orders || orders.length === 0) {
+      container.innerHTML = "<p>You haven't placed any orders yet.</p>";
+      return;
+    }
+
+    container.innerHTML = "";
+
+    orders.forEach(order => {
+      const card = document.createElement("div");
+      card.style.cssText =
+        "border:1px solid #ddd;border-radius:10px;padding:15px;margin:15px 0;";
+
+      const heading = document.createElement("h3");
+      heading.textContent =
+        "Order #" + order.id.slice(0, 8).toUpperCase();
+      card.appendChild(heading);
+
+      const date = document.createElement("p");
+      date.textContent =
+        "Date: " + new Date(order.created_at).toLocaleString();
+      card.appendChild(date);
+
+      const status = document.createElement("p");
+      status.textContent =
+        "Order status: " + (order.status || "Pending");
+      card.appendChild(status);
+
+      const payment = document.createElement("p");
+      payment.textContent =
+        "Payment status: " + (order.payment_status || "Pending");
+      card.appendChild(payment);
+
+      const itemsHeading = document.createElement("strong");
+      itemsHeading.textContent = "Products";
+      card.appendChild(itemsHeading);
+
+      const itemsList = document.createElement("ul");
+
+      (order.order_items || []).forEach(item => {
+        const li = document.createElement("li");
+        li.textContent =
+          `${item.product_name} — Qty: ${item.quantity} — ` +
+          `${order.currency === "USD" ? "$" : "UGX "}` +
+          `${Number(item.line_total || 0).toLocaleString()}`;
+        itemsList.appendChild(li);
+      });
+
+      card.appendChild(itemsList);
+
+      const total = document.createElement("p");
+      total.style.fontWeight = "bold";
+      total.textContent =
+        "Total: " +
+        (order.currency === "USD" ? "$" : "UGX ") +
+        Number(order.total_amount || 0).toLocaleString();
+      card.appendChild(total);
+
+      const address = document.createElement("p");
+      address.textContent =
+        "Delivery address: " + (order.delivery_address || "Not provided");
+      card.appendChild(address);
+
+      container.appendChild(card);
+    });
+  } catch (error) {
+    console.error("Customer orders error:", error);
+    container.innerHTML =
+      "<p>We couldn't load your orders. Please try again later.</p>";
+  }
+}
+
+const refreshOrdersButton =
+  document.getElementById("refreshOrdersButton");
+
+if (refreshOrdersButton) {
+  refreshOrdersButton.addEventListener("click", loadCustomerOrders);
+}
+    
+/* OVHAN GLOBAL ACCOUNT PAGE CONTROLS */
+(function () {
+  const $ = (id) => document.getElementById(id);
+
+  const profilePanel = $("profileDetailsPanel");
+  const ordersPanel = $("accountOrdersPanel");
+  const notificationsPanel = $("accountNotificationsPanel");
+  const recentPanel = $("recentlyViewedPanel");
+
+  function closeAccountPanels() {
+    [profilePanel, ordersPanel, notificationsPanel, recentPanel]
+      .forEach(panel => {
+        if (panel) panel.hidden = true;
+      });
+  }
+
+  function togglePanel(panel) {
+    if (!panel) return;
+    const shouldOpen = panel.hidden;
+    closeAccountPanels();
+    panel.hidden = !shouldOpen;
+  }
+
+  // View Profile
+  if ($("viewProfileButton")) {
+    $("viewProfileButton").addEventListener("click", () => {
+      togglePanel(profilePanel);
+    });
+  }
+
+   
+  // Settings button opens the Settings menu
+  if ($("profileSettingsButton")) {
+    $("profileSettingsButton").addEventListener("click", () => {
+      const menu = $("settingsMenuPanel");
+
+      if (!menu) {
+        alert("Settings menu not found. Please check the settings menu HTML.");
+        return;
+      }
+
+      const shouldOpen = menu.hidden;
+
+      menu.hidden = !shouldOpen;
+
+      if (shouldOpen) {
+        if (profilePanel) profilePanel.hidden = true;
+        if (ordersPanel) ordersPanel.hidden = true;
+        if (notificationsPanel) notificationsPanel.hidden = true;
+        if (recentPanel) recentPanel.hidden = true;
+      }
+    });
+          
+
+  // Your Orders
+  if ($("showOrdersButton")) {
+    $("showOrdersButton").addEventListener("click", () => {
+      togglePanel(ordersPanel);
+
+      if (ordersPanel && !ordersPanel.hidden &&
+          typeof loadCustomerOrders === "function") {
+        loadCustomerOrders();
+      }
+    });
+  }
+
+  // Notifications
+  if ($("showNotificationsButton")) {
+    $("showNotificationsButton").addEventListener("click", () => {
+      togglePanel(notificationsPanel);
+    });
+  }
+
+  // Recently Viewed
+  if ($("recentlyViewedButton")) {
+    $("recentlyViewedButton").addEventListener("click", () => {
+      togglePanel(recentPanel);
+    });
+  }
+
+  // Update avatar and profile heading from the account name
+  function updateProfileHeading() {
+    const nameElement = $("accountName");
+    const heading = $("profileDisplayName");
+    const avatar = $("profileAvatar");
+
+    const name = nameElement ? nameElement.textContent.trim() : "";
+    if (!name || name === "Loading...") return;
+
+    if (heading) heading.textContent = name;
+    if (avatar && !avatar.querySelector("img")) {
+  avatar.textContent = name.charAt(0).toUpperCase();
+    }
+
+  updateProfileHeading();
+
+  const nameElement = $("accountName");
+  if (nameElement && window.MutationObserver) {
+    new MutationObserver(updateProfileHeading).observe(nameElement, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  }
+
+const profilePictureInput = $("profilePictureInput");
+const profileAvatar = $("profileAvatar");
+
+if (profileAvatar && profilePictureInput) {
+  profileAvatar.addEventListener("click", () => {
+    profilePictureInput.click();
+  });
+
+  profilePictureInput.addEventListener("change", () => {
+    const file = profilePictureInput.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image.");
+      return;
+    }
+
+    if (file.size > 3 * 1024 * 1024) {
+      alert("Please choose an image smaller than 3 MB.");
+      profilePictureInput.value = "";
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const image = document.createElement("img");
+      image.src = reader.result;
+      image.alt = "Profile picture";
+      profileAvatar.replaceChildren(image);
+
+      try {
+        localStorage.setItem("ovhan_profile_picture", reader.result);
+      } catch (error) {
+        alert("This picture could not be saved on this device. Please choose a smaller image.");
+      }
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  const savedPicture = localStorage.getItem("ovhan_profile_picture");
+
+  if (savedPicture) {
+    const image = document.createElement("img");
+    image.src = savedPicture;
+    image.alt = "Profile picture";
+    profileAvatar.replaceChildren(image);
+  }
+}
+    
+  // Keep the bottom navigation highlight in sync with the page URL
+  function updateBottomNavigation() {
+    const currentRoute = (location.hash.slice(1) || "marketplace")
+      .split("?")[0];
+
+    document.querySelectorAll(".account-bottom-nav a[data-route]")
+      .forEach(link => {
+        const active = link.dataset.route === currentRoute;
+        link.classList.toggle("active", active);
+
+        if (active) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+  window.addEventListener("hashchange", updateBottomNavigation);
+  updateBottomNavigation();
+})();
+
+    
+/* OVHAN GLOBAL SETTINGS PREFERENCES */
+(function () {
+  const $ = id => document.getElementById(id);
+
+  const defaults = {
+    theme: "light",
+    language: "en",
+    currency: "UGX"
+  };
+
+  function readPreference(key, fallback) {
+    try {
+      return localStorage.getItem("ovhan_" + key) || fallback;
+    } catch (error) {
+      return fallback;
+    }
+  }
+
+  function savePreference(key, value) {
+    try {
+      localStorage.setItem("ovhan_" + key, value);
+      return true;
+    } catch (error) {
+      console.warn("Could not save preference:", error);
+      return false;
+    }
+  }
+
+  function applyTheme(theme) {
+    const dark = theme === "dark";
+    document.documentElement.classList.toggle("ovhan-dark", dark);
+    document.body.classList.toggle("ovhan-dark", dark);
+
+    const toggle = $("themeToggle");
+    const status = $("themeStatus");
+
+    if (toggle) toggle.checked = dark;
+    if (status) status.textContent = dark ? "Dark mode" : "Light mode";
+  }
+
+  
+function applyLanguage(language) {
+  const select = $("languageSelect");
+  const message = $("languageMessage");
+
+  const translations = {
+    en: {
+      "Home": "Home",
+      "Deals": "Deals",
+      "Categories": "Categories",
+      "Cart": "Cart",
+      "Menu": "Menu",
+      "My Account": "My Account",
+      "Your Orders": "Your Orders",
+      "Notifications": "Notifications",
+      "Recently Viewed": "Recently Viewed",
+      "Account Settings": "Account Settings",
+      "Edit Profile": "Edit Profile",
+      "Contact Details": "Contact Details",
+      "Payment Methods": "Payment Methods",
+      "Sign Out": "Sign Out",
+      "Search": "Search"
+    },
+    sw: {
+      "Home": "Nyumbani",
+      "Deals": "Ofa",
+      "Categories": "Makundi",
+      "Cart": "Kikapu",
+      "Menu": "Menyu",
+      "My Account": "Akaunti Yangu",
+      "Your Orders": "Oda Zako",
+      "Notifications": "Arifa",
+      "Recently Viewed": "Zilizotazamwa Hivi Karibuni",
+      "Account Settings": "Mipangilio ya Akaunti",
+      "Edit Profile": "Hariri Wasifu",
+      "Contact Details": "Maelezo ya Mawasiliano",
+      "Payment Methods": "Njia za Malipo",
+      "Sign Out": "Toka",
+      "Search": "Tafuta"
+    },
+    fr: {
+      "Home": "Accueil",
+      "Deals": "Offres",
+      "Categories": "Catégories",
+      "Cart": "Panier",
+      "Menu": "Menu",
+      "My Account": "Mon compte",
+      "Your Orders": "Vos commandes",
+      "Notifications": "Notifications",
+      "Recently Viewed": "Consultés récemment",
+      "Account Settings": "Paramètres du compte",
+      "Edit Profile": "Modifier le profil",
+      "Contact Details": "Coordonnées",
+      "Payment Methods": "Moyens de paiement",
+      "Sign Out": "Déconnexion",
+      "Search": "Rechercher"
+    },
+    ar: {
+      "Home": "الرئيسية",
+      "Deals": "العروض",
+      "Categories": "الفئات",
+      "Cart": "السلة",
+      "Menu": "القائمة",
+      "My Account": "حسابي",
+      "Your Orders": "طلباتي",
+      "Notifications": "الإشعارات",
+      "Recently Viewed": "شوهدت مؤخراً",
+      "Account Settings": "إعدادات الحساب",
+      "Edit Profile": "تعديل الملف الشخصي",
+      "Contact Details": "بيانات الاتصال",
+      "Payment Methods": "طرق الدفع",
+      "Sign Out": "تسجيل الخروج",
+      "Search": "بحث"
+    },
+    es: {
+      "Home": "Inicio",
+      "Deals": "Ofertas",
+      "Categories": "Categorías",
+      "Cart": "Carrito",
+      "Menu": "Menú",
+      "My Account": "Mi cuenta",
+      "Your Orders": "Tus pedidos",
+      "Notifications": "Notificaciones",
+      "Recently Viewed": "Vistos recientemente",
+      "Account Settings": "Configuración de la cuenta",
+      "Edit Profile": "Editar perfil",
+      "Contact Details": "Datos de contacto",
+      "Payment Methods": "Métodos de pago",
+      "Sign Out": "Cerrar sesión",
+      "Search": "Buscar"
+    },
+    
+    pt: {
+      "Home": "Início",
+      "Deals": "Ofertas",
+      "Categories": "Categorias",
+      "Cart": "Carrinho",
+      "Menu": "Menu",
+      "My Account": "Minha conta",
+      "Your Orders": "Seus pedidos",
+      "Notifications": "Notificações",
+      "Recently Viewed": "Vistos recentemente",
+      "Account Settings": "Configurações da conta",
+      "Edit Profile": "Editar perfil",
+      "Contact Details": "Dados de contato",
+      "Payment Methods": "Métodos de pagamento",
+      "Sign Out": "Sair",
+      "Search": "Pesquisar"
+    },
+    de: {
+      "Home": "Startseite",
+      "Deals": "Angebote",
+      "Categories": "Kategorien",
+      "Cart": "Warenkorb",
+      "Menu": "Menü",
+      "My Account": "Mein Konto",
+      "Your Orders": "Deine Bestellungen",
+      "Notifications": "Benachrichtigungen",
+      "Recently Viewed": "Zuletzt angesehen",
+      "Account Settings": "Kontoeinstellungen",
+      "Edit Profile": "Profil bearbeiten",
+      "Contact Details": "Kontaktdaten",
+      "Payment Methods": "Zahlungsmethoden",
+      "Sign Out": "Abmelden",
+      "Search": "Suchen"
+    },
+    zh: {
+      "Home": "首页",
+      "Deals": "优惠",
+      "Categories": "分类",
+      "Cart": "购物车",
+      "Menu": "菜单",
+      "My Account": "我的账户",
+      "Your Orders": "我的订单",
+      "Notifications": "通知",
+      "Recently Viewed": "最近浏览",
+      "Account Settings": "账户设置",
+      "Edit Profile": "编辑资料",
+      "Contact Details": "联系方式",
+      "Payment Methods": "付款方式",
+      "Sign Out": "退出登录",
+      "Search": "搜索"
+    },
+    hi: {
+      "Home": "होम",
+      "Deals": "ऑफ़र",
+      "Categories": "श्रेणियाँ",
+      "Cart": "कार्ट",
+      "Menu": "मेनू",
+      "My Account": "मेरा खाता",
+      "Your Orders": "आपके ऑर्डर",
+      "Notifications": "सूचनाएँ",
+      "Recently Viewed": "हाल ही में देखे गए",
+      "Account Settings": "खाता सेटिंग्स",
+      "Edit Profile": "प्रोफ़ाइल संपादित करें",
+      "Contact Details": "संपर्क विवरण",
+      "Payment Methods": "भुगतान के तरीके",
+      "Sign Out": "साइन आउट",
+      "Search": "खोजें"
+    },
+    rw: {
+      "Home": "Ahabanza",
+      "Deals": "Amaturo",
+      "Categories": "Ibyiciro",
+      "Cart": "Agaseke",
+      "Menu": "Menyu",
+      "My Account": "Konti yanjye",
+      "Your Orders": "Ibyo watumije",
+      "Notifications": "Amakuru akumenyesha",
+      "Recently Viewed": "Ibyo uherutse kureba",
+      "Account Settings": "Igenamiterere rya konti",
+      "Edit Profile": "Hindura umwirondoro",
+      "Contact Details": "Amakuru y'itumanaho",
+      "Payment Methods": "Uburyo bwo kwishyura",
+      "Sign Out": "Sohoka",
+      "Search": "Shakisha"
+    },
+    lg: {
+      "Home": "Awaka",
+      "Deals": "Ebisuubizo",
+      "Categories": "Ebika",
+      "Cart": "Ekigaali",
+      "Menu": "Menyu",
+      "My Account": "Akaawunti Yange",
+      "Your Orders": "Ebyo Nnalagidde",
+      "Notifications": "Obubaka",
+      "Recently Viewed": "Bye Nnakaaliriza Okulaba",
+      "Account Settings": "Enteekateeka za Akaawunti",
+      "Edit Profile": "Kyusa Ebikwogerako",
+      "Contact Details": "Ebikwata ku Kukutuukirira",
+      "Payment Methods": "Engeri z'Okusasula",
+      "Sign Out": "Fuluma",
+      "Search": "Noonya"
+    }
+    
+  };
+
+  const supported = translations[language] ? language : "en";
+  const dictionary = translations[supported];
+
+  document.querySelectorAll("body *").forEach(element => {
+    if (element.children.length === 0) {
+      const original = element.dataset.originalText || element.textContent.trim();
+
+      if (!element.dataset.originalText) {
+        element.dataset.originalText = original;
+      }
+
+      if (dictionary[original]) {
+        element.textContent = dictionary[original];
+      } else if (translations.en[original]) {
+        element.textContent = translations.en[original];
+      }
+    }
+
+    if (element.placeholder) {
+      if (!element.dataset.originalPlaceholder) {
+        element.dataset.originalPlaceholder = element.placeholder;
+      }
+
+      const originalPlaceholder = element.dataset.originalPlaceholder;
+      element.placeholder =
+        dictionary[originalPlaceholder] ||
+        translations.en[originalPlaceholder] ||
+        originalPlaceholder;
+    }
+
+    if (element.getAttribute("aria-label")) {
+      if (!element.dataset.originalAriaLabel) {
+        element.dataset.originalAriaLabel =
+          element.getAttribute("aria-label");
+      }
+
+      const originalLabel = element.dataset.originalAriaLabel;
+      element.setAttribute(
+        "aria-label",
+        dictionary[originalLabel] ||
+        translations.en[originalLabel] ||
+        originalLabel
+      );
+    }
+  });
+
+  document.documentElement.lang = supported;
+  document.documentElement.dir = supported === "ar" ? "rtl" : "ltr";
+
+  if (select) select.value = supported;
+
+  if (message) {
+    message.textContent =
+      (select && select.selectedOptions[0]
+        ? select.selectedOptions[0].textContent
+        : supported) + " selected.";
+  }
+    }
+    
+
+  function applyCurrency(currency) {
+    const select = $("currencySelect");
+    const message = $("currencyMessage");
+
+    if (select) select.value = currency;
+    if (message) {
+      message.textContent = "Preferred display currency: " + currency
+        + ". Existing product-price conversion must also use this preference.";
+    }
+
+    document.documentElement.dataset.currency = currency;
+  }
+
+  // Load saved preferences when the page starts.
+  applyTheme(readPreference("theme", defaults.theme));
+  applyLanguage(readPreference("language", defaults.language));
+  applyCurrency(readPreference("currency", defaults.currency));
+
+  // Theme switch.
+  if ($("themeToggle")) {
+    $("themeToggle").addEventListener("change", event => {
+      const theme = event.target.checked ? "dark" : "light";
+      savePreference("theme", theme);
+      applyTheme(theme);
+    });
+  }
+
+  // Language selection. Native select menus close when a choice is made
+  // or when the user taps elsewhere.
+  if ($("languageSelect")) {
+    $("languageSelect").addEventListener("change", event => {
+      const language = event.target.value;
+      savePreference("language", language);
+      applyLanguage(language);
+    });
+  }
+
+  // Currency selection.
+  if ($("saveCurrencyButton")) {
+    $("saveCurrencyButton").addEventListener("click", () => {
+      const currency = $("currencySelect").value;
+      savePreference("currency", currency);
+      applyCurrency(currency);
+    });
+  }
+
+  // Reset preferences only. Do not delete accounts or customer orders.
+  if ($("resetPreferencesButton")) {
+    $("resetPreferencesButton").addEventListener("click", () => {
+      if (!confirm("Reset theme, language and currency to Light, English and UGX?")) {
+        return;
+      }
+
+      savePreference("theme", defaults.theme);
+      savePreference("language", defaults.language);
+      savePreference("currency", defaults.currency);
+
+      applyTheme(defaults.theme);
+      applyLanguage(defaults.language);
+      applyCurrency(defaults.currency);
+
+      if ($("resetMessage")) {
+        $("resetMessage").textContent = "Preferences reset to Light, English and UGX.";
+      }
+    });
+  }
+
+  // Clear only this site's namespaced preferences, after confirmation.
+  if ($("clearLocalDataButton")) {
+    $("clearLocalDataButton").addEventListener("click", () => {
+      if (!confirm("Clear Ovhan Global preferences saved on this device? This will not delete your online account or orders.")) {
+        return;
+      }
+
+      try {
+        ["theme", "language", "currency"].forEach(key => {
+          localStorage.removeItem("ovhan_" + key);
+        });
+      } catch (error) {
+        console.warn("Could not clear local preferences:", error);
+      }
+
+      applyTheme(defaults.theme);
+      applyLanguage(defaults.language);
+      applyCurrency(defaults.currency);
+
+      if ($("resetMessage")) {
+        $("resetMessage").textContent = "Local preferences cleared and defaults restored.";
+      }
+    });
+  }
+})();
+    
+  </script>
+  
+    <!-- FIXED BOTTOM NAVIGATION -->
+    
+<nav class="account-bottom-nav" aria-label="Main navigation">
+  <a href="#marketplace" data-route="marketplace">
+    <span class="nav-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg>
+    </span>
+    <small>Home</small>
+  </a>
+
+  <a href="#deals" data-route="deals">
+    <span class="nav-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M20 13 13 20a2 2 0 0 1-3 0L3 13V4h9l8 9Z"/><circle cx="8" cy="8" r="1.5"/></svg>
+    </span>
+    <small>Deals</small>
+  </a>
+
+  <a href="#products" data-route="products">
+    <span class="nav-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    </span>
+    <small>Categories</small>
+  </a>
+
+  <a href="#cartpage" data-route="cartpage">
+    <span class="nav-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3 3h2l2.5 12h10.8l2-8H6"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg>
+    </span>
+    <small>Cart</small>
+  </a>
+
+  <a href="#account" data-route="account">
+    <span class="nav-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+    </span>
+    <small>Menu</small>
+  </a>
+</nav>
+</body>
+</html>
