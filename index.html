@@ -103,28 +103,37 @@ body.theme-dark .category-card{background:#172231;border-color:#344256}body.them
   <div class="wrap head-main">
     <a class="brand" href="#marketplace" aria-label="Ovhan Global home" data-route="marketplace">
       <div class="brand-mark brand-mark-cart" role="img" aria-label="Shopping cart with airplane">🛒<span class="brand-plane">✈</span></div>
-      <div class="brand-name">OVHAN <span>GLOBAL</span><small>SHOP THE WORLD</small></div>
+      <div class="brand-name">OVHAN <span>GLOBAL</span><small data-translate="shop_world">SHOP THE WORLD</small></div>
     </a>
+
     <div class="header-menu">
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="quickMenu">☰ Menu</button>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="quickMenu">
+        ☰ <span data-translate="menu">Menu</span>
+      </button>
+
       <div class="quick-menu" id="quickMenu">
-        <a href="#marketplace" data-route="marketplace">🏠 Marketplace</a>
-        <a href="#products" data-route="products">🛍️ Explore products</a>
-        <a href="#deals" data-route="deals">🔥 Deals & advertisements</a>
-        <button id="openCart">🛒 Shopping cart (<span id="cartCount">0</span>)</button>
-        <a href="#signin" data-route="signin">👤 Sign in</a>
-        <a href="#signup" data-route="signup">✍️ Sign up</a>
-        <a href="#faqs" data-route="faqs">❔ Help & FAQs</a>
-        <a href="#contact" data-route="contact">💬 Contact / inquiries</a>
-        <a href="#settings" data-route="settings">⚙️ Settings</a>
+        <a href="#marketplace" data-route="marketplace">🏠 <span data-translate="marketplace">Marketplace</span></a>
+        <a href="#products" data-route="products">🛍️ <span data-translate="explore_products">Explore products</span></a>
+        <a href="#deals" data-route="deals">🔥 <span data-translate="deals_ads">Deals & advertisements</span></a>
+        <button id="openCart">🛒 <span data-translate="shopping_cart">Shopping cart</span> (<span id="cartCount">0</span>)</button>
+        <a href="#signin" data-route="signin">👤 <span data-translate="sign_in">Sign in</span></a>
+        <a href="#signup" data-route="signup">✍️ <span data-translate="sign_up">Sign up</span></a>
+        <a href="#faqs" data-route="faqs">❔ <span data-translate="help_faqs">Help & FAQs</span></a>
+        <a href="#contact" data-route="contact">💬 <span data-translate="contact_inquiries">Contact / inquiries</span></a>
+        <a href="#settings" data-route="settings">⚙️ <span data-translate="settings">Settings</span></a>
       </div>
     </div>
+
     <form class="search" id="searchForm" role="search">
-      <input id="searchInput" type="search" placeholder="Search products, brands and categories..." aria-label="Search products">
+      <input id="searchInput" type="search"
+        placeholder="Search products, brands and categories..."
+        data-translate-placeholder="search_placeholder"
+        aria-label="Search products">
       <button aria-label="Search" type="submit">⌕</button>
     </form>
   </div>
 </header>
+  
 <main class="wrap">
   <div id="homeView" class="page-view active" data-page="marketplace">
   <section class="hero">
