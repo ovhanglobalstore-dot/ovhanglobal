@@ -930,7 +930,6 @@ search_placeholder: "ابحث عن المنتجات والعلامات التج�
       }
 };
   
-
 // TRANSLATE PAGE ELEMENTS
 function applyLanguage(language) {
   const lang = translations[language] ? language : "en";
@@ -939,45 +938,33 @@ function applyLanguage(language) {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
-  const selectors = {
-  '[data-translate="cart"]': "cart",
-  '[data-translate="cartDescription"]': "cartDescription",
-  '[data-translate="checkout"]': "checkout",
-  '[data-translate="settings"]': "settings",
-  '[data-translate="settingsDescription"]': "settingsDescription",
-  '[data-translate="profile"]': "profile",
-  '[data-translate="profileDescription"]': "profileDescription",
-  '[data-translate="openProfile"]': "openProfile",
-  '[data-translate="theme"]': "theme",
-  '[data-translate="language"]': "language",
-  '[data-translate="chooseLanguage"]': "chooseLanguage",
-  '[data-translate="privacy"]': "privacy",
-  '[data-translate="readPolicy"]': "readPolicy",
-  '[data-translate="reset"]': "reset",
-  '[data-translate="privacyDate"]': "privacyDate",
-  '[data-translate="aboutDemo"]': "aboutDemo",
-  '[data-translate="aboutDemoText"]': "aboutDemoText",
-  '[data-translate="informationEntered"]': "informationEntered",
-  '[data-translate="informationText"]': "informationText",
-  '[data-translate="localPreferences"]': "localPreferences",
-  '[data-translate="localPreferencesText"]': "localPreferencesText",
-  '[data-translate="paymentsSecurity"]': "paymentsSecurity",
-  '[data-translate="paymentsSecurityText"]': "paymentsSecurityText",
-  '[data-translate="yourChoices"]': "yourChoices",
-  '[data-translate="yourChoicesText"]': "yourChoicesText",
-  '[data-translate="backSettings"]': "backSettings"
-};
-  Object.entries(selectors).forEach(([selector, key]) => {
-    document.querySelectorAll(selector).forEach(element => {
+  // Translate all elements marked with data-translate
+  document.querySelectorAll("[data-translate]").forEach(element => {
+    const key = element.getAttribute("data-translate");
+
+    if (Object.prototype.hasOwnProperty.call(t, key)) {
       element.textContent = t[key];
-    });
+    }
   });
 
+  // Translate placeholders
+  document.querySelectorAll("[data-translate-placeholder]").forEach(element => {
+    const key = element.getAttribute("data-translate-placeholder");
+
+    if (Object.prototype.hasOwnProperty.call(t, key)) {
+      element.placeholder = t[key];
+    }
+  });
+
+  // Update theme status
   const themeStatus = $("#themeStatus");
+
   if (themeStatus) {
     const st = readSettings();
     themeStatus.textContent = st.dark ? t.darkTheme : t.lightTheme;
   }
+  }
+  
 }
 
 function initSettings() {
