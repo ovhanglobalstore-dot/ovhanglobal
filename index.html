@@ -257,15 +257,68 @@ body.theme-dark .category-card{background:#172231;border-color:#344256}body.them
   </section>
 
   <section class="page-view" data-page="settings" id="settingsPage">
-    <div class="page-card"><h1>Settings</h1><p>Manage your profile, appearance, language and privacy preferences.</p>
-      <div class="settings-list">
-        <div class="settings-row"><div><strong>Profile features</strong><small>Account photo, sign out and account options</small></div><a class="setting-control" href="#profile" data-route="profile">Open profile →</a></div>
-        <div class="settings-row"><div><strong>Theme</strong><small id="themeStatus">Light theme</small></div><label class="switch setting-control" aria-label="Switch between light and dark themes"><input id="themeSwitch" type="checkbox"><span class="switch-track"></span></label></div>
-        <div class="settings-row"><div><strong>Language</strong><small>Choose your preferred language</small></div><select id="languageSelect" class="settings-select setting-control" aria-label="Preferred language"><option value="en">English</option><option value="sw">Kiswahili</option><option value="lg">Luganda</option><option value="fr">Français</option><option value="ar">العربية</option></select></div>
-        <a class="settings-row" href="#privacy" data-route="privacy"><div><strong>Privacy policy</strong><small>How this demo handles information</small></div><span class="setting-control">Read policy →</span></a>
+    <div class="page-card">
+  <h1 data-translate="settings">Settings</h1>
+
+  <p data-translate="settingsDescription">
+    Manage your profile, appearance, language and privacy preferences.
+  </p>
+
+  <div class="settings-list">
+
+    <div class="settings-row">
+      <div>
+        <strong data-translate="profile">Profile features</strong>
+        <small data-translate="profileDescription">Account photo, sign out and account options</small>
       </div>
-      <div class="settings-actions"><button class="secondary-button" id="resetSettingsBtn" type="button">Reset settings</button></div>
-       <p class="note" style="margin-top:14px">Your preferences are saved on this device. Select a language to translate the website.</p>
+      <a class="setting-control" href="#profile" data-route="profile" data-translate="openProfile">Open profile →</a>
+    </div>
+
+    <div class="settings-row">
+      <div>
+        <strong data-translate="theme">Theme</strong>
+        <small id="themeStatus">Light theme</small>
+      </div>
+      <label class="switch setting-control" aria-label="Switch between light and dark themes">
+        <input id="themeSwitch" type="checkbox">
+        <span class="switch-track"></span>
+      </label>
+    </div>
+
+    <div class="settings-row">
+      <div>
+        <strong data-translate="language">Language</strong>
+        <small data-translate="chooseLanguage">Choose your preferred language</small>
+      </div>
+
+      <select id="languageSelect" class="settings-select setting-control" aria-label="Preferred language">
+        <option value="en">English</option>
+        <option value="sw">Kiswahili</option>
+        <option value="lg">Luganda</option>
+        <option value="fr">Français</option>
+        <option value="ar">العربية</option>
+      </select>
+    </div>
+
+    <a class="settings-row" href="#privacy" data-route="privacy">
+      <div>
+        <strong data-translate="privacy">Privacy policy</strong>
+        <small>How this demo handles information</small>
+      </div>
+      <span class="setting-control" data-translate="readPolicy">Read policy →</span>
+    </a>
+
+  </div>
+
+  <div class="settings-actions">
+    <button class="secondary-button" id="resetSettingsBtn" type="button" data-translate="reset">
+      Reset settings
+    </button>
+  </div>
+
+  <p class="note" style="margin-top:14px">
+    Your preferences are saved on this device. Select a language to translate the website.
+  </p>
     </div>
   </section>
 
