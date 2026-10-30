@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ovhan Global | Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--navy:#10233f;--navy2:#19385e;--orange:#ff8a00;--bg:#f3f6fa;--ink:#202b3c;--muted:#667085;--line:#e3e8ef;--green:#16834a;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#0d1d34,#24466d)}.login{width:min(420px,100%);background:#fff;border-radius:18px;padding:30px;box-shadow:0 20px 70px #0004}.logo{display:flex;align-items:center;gap:12px;color:var(--navy);font-weight:900;font-size:20px}.mark{width:48px;height:48px;border-radius:13px;background:linear-gradient(145deg,#ffb02e,#ff7a00);display:grid;place-items:center;font-size:24px}.logo small{display:block;font-size:10px;letter-spacing:2px;color:#77849a}.login h1{font-size:23px;margin:26px 0 5px;color:var(--navy)}.muted{color:var(--muted)}.field{display:grid;gap:6px;margin:14px 0}.field label{font-weight:700;font-size:12px}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff}.btn{padding:10px 14px;border-radius:8px;background:#edf1f6;color:var(--navy);font-weight:700}.btn.primary{background:var(--orange);color:#172238}.btn.dark{background:var(--navy);color:#fff}.btn.danger{background:#fff0f0;color:var(--red)}.btn:disabled{opacity:.55;cursor:wait}.wide{width:100%}.message{margin-top:12px;padding:10px;border-radius:8px;background:#fff4df;color:#744800;font-size:13px}.message.error{background:#fff0f0;color:#a32121}.message.success{background:#eaf8ef;color:#176b3a}
+.app{min-height:100vh;display:grid;grid-template-columns:245px 1fr}.sidebar{background:var(--navy);color:#fff;padding:22px 16px;display:flex;flex-direction:column;gap:24px}.sidebar .logo{color:#fff}.sidebar .logo small{color:#c5d2e2}.nav{display:grid;gap:6px}.nav button{padding:12px;text-align:left;background:transparent;color:#dce6f2;border-radius:8px}.nav button.active,.nav button:hover{background:#ffffff1d;color:#fff}.sidefoot{margin-top:auto;color:#b9c8da;font-size:11px}.main{min-width:0}.top{height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 25px;gap:12px}.top h1{margin:0;color:var(--navy);font-size:20px}.top-right{display:flex;gap:8px;align-items:center}.content{padding:24px;max-width:1500px;margin:auto}.notice{padding:11px 13px;background:#fff7e8;border:1px solid #ffe2ae;border-radius:9px;color:#774500;margin-bottom:17px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:18px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:12px}.stat{padding:16px}.stat span{font-size:12px;color:var(--muted)}.stat strong{display:block;font-size:26px;color:var(--navy);margin-top:4px}.panel{padding:17px;margin-bottom:17px}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}.panel h2{font-size:16px;margin:0;color:var(--navy)}.filters{display:flex;gap:8px;flex-wrap:wrap}.filters input,.filters select{padding:9px;border:1px solid var(--line);border-radius:8px;background:white}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:760px}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);vertical-align:middle}th{font-size:11px;color:var(--muted);text-transform:uppercase;background:#fafbfd}td{font-size:13px}.item{display:flex;align-items:center;gap:9px;min-width:175px}.thumb{width:42px;height:42px;object-fit:cover;border-radius:7px;background:#edf1f5}.pill{padding:4px 8px;border-radius:20px;font-size:11px;font-weight:800}.good{background:#e7f7ed;color:#14713c}.low{background:#fff3d9;color:#945600}.out{background:#ffeded;color:#b42318}.actions{display:flex;gap:5px}.actions button{padding:6px 8px;border-radius:6px;background:#edf1f6;color:var(--navy);font-size:12px}.actions .del{background:#fff0f0;color:var(--red)}.empty{text-align:center;padding:30px;color:var(--muted)}.modal{position:fixed;inset:0;background:#09182bcc;z-index:5;display:none;align-items:center;justify-content:center;padding:15px}.modal.open{display:flex}.dialog{width:min(680px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:14px;padding:21px}.dialoghead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}.preview{width:85px;height:85px;object-fit:cover;border-radius:8px;background:#edf1f5}.formfoot{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.logrow{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}.logrow small{color:var(--muted)}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);padding:11px 16px;background:var(--navy);color:#fff;border-radius:8px;display:none;z-index:10}.toast.show{display:block}
+@media(max-width:850px){.app{grid-template-columns:1fr}.sidebar{padding:12px;gap:10px}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px}.sidefoot{display:none}.stats{grid-template-columns:repeat(2,1fr)}.content{padding:14px}.top{padding:0 14px;height:64px}}@media(max-width:520px){.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.top h1{font-size:16px}.top-right .btn{padding:8px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:22px}}
+</style></head>
+<body>
+<section id="loginScreen" class="login-wrap"><div class="login">
+ <div class="logo"><div class="mark">O</div><div>OVHAN GLOBAL<small>ADMINISTRATION</small></div></div>
+ <h1>Administrator sign in</h1><p class="muted">Sign in with your authorized Ovhan Global administrator account.</p>
+ <form id="loginForm"><div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="username" required></div><div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div><button id="loginBtn" class="btn primary wide" type="submit">Sign in securely</button></form>
+ <button id="forgotBtn" class="btn wide" style="margin-top:9px">Forgot password?</button>
+ <div id="loginMessage" class="message hidden" role="status"></div>
+ <p class="muted" style="font-size:11px;margin-top:18px">Access is restricted to accounts explicitly authorized in the Supabase admin_users table. There is no public admin sign-up.</p>
+</div></section>
+<div id="adminApp" class="app hidden">
+ <aside class="sidebar"><div class="logo"><div class="mark">O</div><div>OVHAN GLOBAL<small>ADMIN CONTROL</small></div></div>
+  <nav class="nav"><button class="active" data-page="dashboard">▦ &nbsp; Dashboard</button><button data-page="products">▣ &nbsp; Products & inventory</button><button data-page="alerts">⚑ &nbsp; Stock alerts</button><button data-page="orders">▤ &nbsp; Orders</button><button data-page="activity">◷ &nbsp; Inventory history</button></nav>
+  <div class="sidefoot">Connected to Supabase<br><span id="adminEmail"></span></div>
+ </aside>
+ <main class="main"><header class="top"><h1 id="pageTitle">Dashboard</h1><div class="top-right"><button id="refreshBtn" class="btn">↻ Refresh</button><button id="logoutBtn" class="btn dark">Sign out</button></div></header>
+ <div class="content"><div class="notice">Live Supabase connection. Product and inventory changes are saved to the database. Configure the included SQL setup before signing in.</div>
+  <section id="dashboardPage"><div class="stats"><div class="stat"><span>Products</span><strong id="statProducts">—</strong></div><div class="stat"><span>Units in stock</span><strong id="statUnits">—</strong></div><div class="stat"><span>Low stock</span><strong id="statLow">—</strong></div><div class="stat"><span>Out of stock</span><strong id="statOut">—</strong></div></div>
+   <div class="panel"><div class="panelhead"><h2>Recent stock movements</h2></div><div id="dashMovements"></div></div>
+  </section>
+  <section id="productsPage" class="hidden"><div class="panel"><div class="panelhead"><h2>Product catalogue</h2><div class="filters"><input id="searchInput" placeholder="Search name or SKU"><select id="categoryFilter"><option value="">All categories</option><option>Fashion</option><option>Footwear</option><option>Bags</option><option>Watches</option><option>Electronics</option><option>Beauty</option><option>Home</option><option>Other</option></select><button id="addProductBtn" class="btn primary">＋ Add product</button></div></div><div class="tablewrap"><table><thead><tr><th>Product</th><th>SKU</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead><tbody id="productRows"></tbody></table></div><div id="productEmpty" class="empty hidden">No products found.</div></div></section>
+  <section id="alertsPage" class="hidden"><div class="panel"><div class="panelhead"><h2>Replenishment alerts</h2></div><div id="alertsList"></div></div></section>
+  <section id="ordersPage" class="hidden"><div class="panel"><div class="panelhead"><h2>Customer orders</h2><span class="muted" style="font-size:12px">Uses the existing orders table</span></div><div class="tablewrap"><table><thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th><th>Update status</th></tr></thead><tbody id="orderRows"></tbody></table></div><div id="ordersEmpty" class="empty hidden">No orders found, or the orders table/policies are not configured.</div></div></section>
+  <section id="activityPage" class="hidden"><div class="panel"><div class="panelhead"><h2>Inventory movement history</h2></div><div id="movementList"></div></div></section>
+ </div></main>
+</div>
+<div class="modal" id="productModal"><div class="dialog"><div class="dialoghead"><h2 id="modalTitle">Add product</h2><button class="btn" id="closeModal">✕</button></div>
+<form id="productForm"><input type="hidden" id="productId"><div class="formgrid">
+ <div class="field"><label>Product name *</label><input id="pName" required maxlength="140"></div><div class="field"><label>SKU *</label><input id="pSku" required maxlength="60"></div>
+ <div class="field"><label>Category *</label><select id="pCategory" required><option value="">Select</option><option>Fashion</option><option>Footwear</option><option>Bags</option><option>Watches</option><option>Electronics</option><option>Beauty</option><option>Home</option><option>Other</option></select></div>
+ <div class="field"><label>Price (UGX) *</label><input id="pPrice" type="number" min="0" step=".01" required></div><div class="field"><label>Stock quantity *</label><input id="pStock" type="number" min="0" step="1" required></div><div class="field"><label>Reorder threshold</label><input id="pReorder" type="number" min="0" step="1" value="5"></div>
+ <div class="field full"><label>Description</label><textarea id="pDescription" rows="3"></textarea></div>
+ <div class="field"><label>Product image</label><input id="pImage" type="file" accept="image/*"><small class="muted">Images upload to Supabase Storage.</small></div><div class="field"><label>Preview</label><img id="pPreview" class="preview" alt="Product image preview"></div>
+</div><div class="formfoot"><button type="button" id="cancelModal" class="btn">Cancel</button><button id="saveProductBtn" type="submit" class="btn primary">Save product</button></div></form></div></div>
+<div id="toast" class="toast"></div>
+<script>
+(()=>{'use strict';
+const SUPABASE_URL='https://lewdjmdeukcekzwgwavo.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_uwC4i59SP3Gpj5BtVZXyYg_c6-DeYOC';
+const IMAGE_BUCKET='product-images';
+const {createClient}=window.supabase;
+const db=createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+let session=null, products=[], movements=[], orders=[], selectedImage=null, currentImagePath=null, realtime=null;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=n=>'UGX '+Number(n||0).toLocaleString('en-UG',{maximumFractionDigits:2});
+function message(s,type=''){const el=$('loginMessage');el.textContent=s;el.className='message'+(type?' '+type:'');}
+function toast(s){$('toast').textContent=s;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2600)}
+function stockState(p){return Number(p.stock_quantity)<=0?'out':Number(p.stock_quantity)<=Number(p.reorder_level??5)?'low':'good'}
+function statePill(p){const s=stockState(p);return `<span class="pill ${s}">${s==='good'?'In stock':s==='low'?'Low stock':'Out of stock'}</span>`}
+function showLogin(s=''){ $('loginScreen').classList.remove('hidden');$('adminApp').classList.add('hidden');if(s)message(s,'error');}
+function showApp(){ $('loginScreen').classList.add('hidden');$('adminApp').classList.remove('hidden');$('adminEmail').textContent=session?.user?.email||'';}
+async function verifyAdmin(user){
+ const {data,error}=await db.from('admin_users').select('user_id,role,is_active').eq('user_id',user.id).eq('is_active',true).maybeSingle();
+ if(error)throw new Error('Could not verify administrator access. Run the supplied SQL setup. '+error.message);
+ if(!data)throw new Error('This account is not authorized as an Ovhan Global administrator. Ask the project owner to authorize its user ID in admin_users.');
+ return data;
+}
+async function loadAll(){
+ const [pr,mv,od]=await Promise.all([
+  db.from('products').select('*').order('updated_at',{ascending:false}),
+  db.from('inventory_movements').select('id,product_id,change_quantity,reason,created_at,products(name,sku)').order('created_at',{ascending:false}).limit(80),
+  db.from('orders').select('id,created_at,status,subtotal,currency,customer_name,customer_phone').order('created_at',{ascending:false}).limit(100)
+ ]);
+ if(pr.error)throw pr.error;products=pr.data||[];
+ movements=mv.error?[]:(mv.data||[]);orders=od.error?[]:(od.data||[]);
+ render();
+ if(od.error) $('ordersEmpty').classList.remove('hidden');
+}
+function render(){
+ $('statProducts').textContent=products.length;
+ $('statUnits').textContent=products.reduce((a,p)=>a+Number(p.stock_quantity||0),0);
+ $('statLow').textContent=products.filter(p=>stockState(p)==='low').length;
+ $('statOut').textContent=products.filter(p=>stockState(p)==='out').length;
+ const q=$('searchInput').value.toLowerCase(),cat=$('categoryFilter').value;
+ const filtered=products.filter(p=>(!q||`${p.name} ${p.sku}`.toLowerCase().includes(q))&&(!cat||p.category===cat));
+ $('productRows').innerHTML=filtered.map(p=>`<tr><td><div class="item"><img class="thumb" src="${esc(p.image_url||'')}" alt=""><div><b>${esc(p.name)}</b><div class="muted">${esc(p.description||'').slice(0,55)}</div></div></div></td><td>${esc(p.sku)}</td><td>${esc(p.category)}</td><td>${money(p.price)}</td><td><b>${Number(p.stock_quantity||0)}</b></td><td>${statePill(p)}</td><td><div class="actions"><button data-edit="${p.id}">Edit</button><button data-stock="${p.id}">± Stock</button><button class="del" data-del="${p.id}">Delete</button></div></td></tr>`).join('');
+ $('productEmpty').classList.toggle('hidden',filtered.length>0);
+ const alerts=products.filter(p=>stockState(p)!=='good');
+ $('alertsList').innerHTML=alerts.map(p=>`<div class="logrow"><div><b>${esc(p.name)}</b><div class="muted">${esc(p.sku)} · Reorder threshold ${p.reorder_level??5}</div></div>${statePill(p)} <b>${p.stock_quantity} units</b></div>`).join('')||'<div class="empty">No low-stock alerts.</div>';
+ const mvHtml=movements.map(m=>`<div class="logrow"><div><b>${esc(m.products?.name||'Product')}</b><div>${esc(m.reason||'Stock movement')} · ${Number(m.change_quantity)>0?'+':''}${m.change_quantity} units</div></div><small>${new Date(m.created_at).toLocaleString()}</small></div>`).join('')||'<div class="empty">No stock movements recorded.</div>';
+ $('movementList').innerHTML=mvHtml;$('dashMovements').innerHTML=movements.slice(0,8).map(m=>`<div class="logrow"><div><b>${esc(m.products?.name||'Product')}</b><div>${esc(m.reason||'Stock movement')} · ${Number(m.change_quantity)>0?'+':''}${m.change_quantity}</div></div><small>${new Date(m.created_at).toLocaleString()}</small></div>`).join('')||'<div class="empty">No recent inventory movements.</div>';
+ $('orderRows').innerHTML=orders.map(o=>`<tr><td>#${esc(String(o.id).slice(0,12))}</td><td>${esc(o.customer_name||'Customer')}<div class="muted">${esc(o.customer_phone||'')}</div></td><td>${new Date(o.created_at).toLocaleDateString()}</td><td>${money(o.subtotal)} ${esc(o.currency||'UGX')}</td><td>${esc(o.status||'pending')}</td><td><select data-order-status="${esc(o.id)}"><option ${o.status==='pending'?'selected':''}>pending</option><option ${o.status==='confirmed'?'selected':''}>confirmed</option><option ${o.status==='processing'?'selected':''}>processing</option><option ${o.status==='shipped'?'selected':''}>shipped</option><option ${o.status==='delivered'?'selected':''}>delivered</option><option ${o.status==='cancelled'?'selected':''}>cancelled</option></select></td></tr>`).join('');
+ $('ordersEmpty').classList.toggle('hidden',orders.length>0);
+}
+function setPage(page){['dashboard','products','alerts','orders','activity'].forEach(p=>$(p+'Page').classList.toggle('hidden',p!==page));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));$('pageTitle').textContent=({dashboard:'Dashboard',products:'Products & inventory',alerts:'Stock alerts',orders:'Orders',activity:'Inventory history'})[page]}
+function openProduct(p){$('productForm').reset();$('productId').value=p?.id||'';$('modalTitle').textContent=p?'Edit product':'Add product';$('pName').value=p?.name||'';$('pSku').value=p?.sku||'';$('pCategory').value=p?.category||'';$('pPrice').value=p?.price??'';$('pStock').value=p?.stock_quantity??0;$('pReorder').value=p?.reorder_level??5;$('pDescription').value=p?.description||'';currentImagePath=p?.image_path||null;selectedImage=null;$('pPreview').src=p?.image_url||'';$('productModal').classList.add('open')}
+function closeProduct(){$('productModal').classList.remove('open')}
+async function uploadImage(file,productId){if(!file)return {url:null,path:null};if(!file.type.startsWith('image/'))throw new Error('Select a valid image.');if(file.size>5*1024*1024)throw new Error('Image must be 5 MB or smaller.');const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';const path=`${productId}/${crypto.randomUUID()}.${ext}`;const {error}=await db.storage.from(IMAGE_BUCKET).upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;const {data}=db.storage.from(IMAGE_BUCKET).getPublicUrl(path);return {url:data.publicUrl,path};}
+async function recordMovement(productId,delta,reason){if(!delta)return;const {error}=await db.from('inventory_movements').insert({product_id:productId,change_quantity:delta,reason});if(error)throw error;}
+$('productForm').onsubmit=async e=>{e.preventDefault();const btn=$('saveProductBtn');btn.disabled=true;try{
+ const id=$('productId').value||crypto.randomUUID();const old=products.find(p=>p.id===id);let img={url:old?.image_url||null,path:old?.image_path||null};
+ if(selectedImage)img=await uploadImage(selectedImage,id);
+ const payload={name:$('pName').value.trim(),sku:$('pSku').value.trim(),category:$('pCategory').value,price:Number($('pPrice').value),currency:'UGX',stock_quantity:Number($('pStock').value),reorder_level:Number($('pReorder').value||0),description:$('pDescription').value.trim(),image_url:img.url,image_path:img.path,is_active:true,updated_at:new Date().toISOString()};
+ let saved;
+ if(old){const {data,error}=await db.from('products').update(payload).eq('id',id).select().single();if(error)throw error;saved=data;const delta=payload.stock_quantity-Number(old.stock_quantity||0);if(delta)await recordMovement(id,delta,'Admin stock correction');}
+ else{const {data,error}=await db.from('products').insert({...payload,id}).select().single();if(error)throw error;saved=data;if(payload.stock_quantity)await recordMovement(id,payload.stock_quantity,'Initial stock');}
+ if(old?.image_path&&selectedImage&&old.image_path!==img.path)await db.storage.from(IMAGE_BUCKET).remove([old.image_path]);
+ closeProduct();await loadAll();toast('Product saved to Supabase.');
+ }catch(err){toast(err.message||'Could not save product.')}finally{btn.disabled=false}};
+$('pImage').onchange=e=>{selectedImage=e.target.files[0]||null;if(selectedImage){const r=new FileReader();r.onload=()=>{$('pPreview').src=r.result};r.readAsDataURL(selectedImage)}};
+$('productRows').onclick=async e=>{const b=e.target.closest('button');if(!b)return;const p=products.find(x=>x.id===(b.dataset.edit||b.dataset.stock||b.dataset.del));if(!p)return;
+ if(b.dataset.edit)openProduct(p);
+ if(b.dataset.stock){const val=prompt(`Current stock: ${p.stock_quantity}. Enter adjustment (e.g. 12 or -3):`,'0');if(val===null)return;const n=Number(val);if(!Number.isInteger(n)||!n||Number(p.stock_quantity)+n<0){toast('Enter a non-zero whole number; stock cannot become negative.');return}try{const {error}=await db.from('products').update({stock_quantity:Number(p.stock_quantity)+n,updated_at:new Date().toISOString()}).eq('id',p.id);if(error)throw error;await recordMovement(p.id,n,'Manual stock adjustment');await loadAll();toast('Stock updated.')}catch(err){toast(err.message)}}
+ if(b.dataset.del&&confirm(`Permanently delete ${p.name}?`)){try{const {error}=await db.from('products').delete().eq('id',p.id);if(error)throw error;if(p.image_path)await db.storage.from(IMAGE_BUCKET).remove([p.image_path]);await loadAll();toast('Product deleted.')}catch(err){toast(err.message)}}
+};
+$('orderRows').onchange=async e=>{const sel=e.target.closest('[data-order-status]');if(!sel)return;try{const {error}=await db.from('orders').update({status:sel.value}).eq('id',sel.dataset.orderStatus);if(error)throw error;toast('Order status updated.');}catch(err){toast('Order update failed: '+err.message)}};
+$('loginForm').onsubmit=async e=>{e.preventDefault();const btn=$('loginBtn');btn.disabled=true;message('Signing in…');try{const {data,error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(error)throw error;session=data.session;await verifyAdmin(data.user);showApp();await loadAll();startRealtime();setPage('dashboard')}catch(err){await db.auth.signOut();session=null;showLogin(err.message)}finally{btn.disabled=false}};
+$('forgotBtn').onclick=async()=>{const email=$('email').value.trim();if(!email){message('Enter your account email first.','error');return}const {error}=await db.auth.resetPasswordForEmail(email,{redirectTo:location.href});message(error?error.message:'Password reset email requested. Check your inbox.',error?'error':'success')};
+$('logoutBtn').onclick=async()=>{stopRealtime();await db.auth.signOut();session=null;showLogin('You have signed out.');};
+$('refreshBtn').onclick=async()=>{try{await loadAll();toast('Data refreshed from Supabase.')}catch(e){toast(e.message)}};
+$('addProductBtn').onclick=()=>openProduct();$('closeModal').onclick=$('cancelModal').onclick=closeProduct;
+$('searchInput').oninput=render;$('categoryFilter').onchange=render;
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>setPage(b.dataset.page));
+function startRealtime(){stopRealtime();realtime=db.channel('ovhan-admin-live').on('postgres_changes',{event:'*',schema:'public',table:'products'},()=>loadAll().catch(e=>toast(e.message))).on('postgres_changes',{event:'*',schema:'public',table:'inventory_movements'},()=>loadAll().catch(e=>toast(e.message))).on('postgres_changes',{event:'*',schema:'public',table:'orders'},()=>loadAll().catch(e=>toast(e.message))).subscribe()}
+function stopRealtime(){if(realtime){db.removeChannel(realtime);realtime=null}}
+db.auth.onAuthStateChange(async(_event,newSession)=>{if(!newSession){session=null;stopRealtime();showLogin()}});
+(async()=>{const {data}=await db.auth.getSession();if(data.session){session=data.session;try{await verifyAdmin(session.user);showApp();await loadAll();startRealtime()}catch(e){await db.auth.signOut();showLogin(e.message)}}})();
+})();
+</script></body></html>
