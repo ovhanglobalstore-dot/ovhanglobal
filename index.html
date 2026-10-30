@@ -792,22 +792,33 @@ function applyLanguage(language) {
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
   const selectors = {
-    '[data-translate="cart"]': "cart",
-    '[data-translate="cartDescription"]': "cartDescription",
-    '[data-translate="checkout"]': "checkout",
-    '[data-translate="settings"]': "settings",
-    '[data-translate="settingsDescription"]': "settingsDescription",
-    '[data-translate="profile"]': "profile",
-    '[data-translate="profileDescription"]': "profileDescription",
-    '[data-translate="openProfile"]': "openProfile",
-    '[data-translate="theme"]': "theme",
-    '[data-translate="language"]': "language",
-    '[data-translate="chooseLanguage"]': "chooseLanguage",
-    '[data-translate="privacy"]': "privacy",
-    '[data-translate="readPolicy"]': "readPolicy",
-    '[data-translate="reset"]': "reset"
-  };
-
+  '[data-translate="cart"]': "cart",
+  '[data-translate="cartDescription"]': "cartDescription",
+  '[data-translate="checkout"]': "checkout",
+  '[data-translate="settings"]': "settings",
+  '[data-translate="settingsDescription"]': "settingsDescription",
+  '[data-translate="profile"]': "profile",
+  '[data-translate="profileDescription"]': "profileDescription",
+  '[data-translate="openProfile"]': "openProfile",
+  '[data-translate="theme"]': "theme",
+  '[data-translate="language"]': "language",
+  '[data-translate="chooseLanguage"]': "chooseLanguage",
+  '[data-translate="privacy"]': "privacy",
+  '[data-translate="readPolicy"]': "readPolicy",
+  '[data-translate="reset"]': "reset",
+  '[data-translate="privacyDate"]': "privacyDate",
+  '[data-translate="aboutDemo"]': "aboutDemo",
+  '[data-translate="aboutDemoText"]': "aboutDemoText",
+  '[data-translate="informationEntered"]': "informationEntered",
+  '[data-translate="informationText"]': "informationText",
+  '[data-translate="localPreferences"]': "localPreferences",
+  '[data-translate="localPreferencesText"]': "localPreferencesText",
+  '[data-translate="paymentsSecurity"]': "paymentsSecurity",
+  '[data-translate="paymentsSecurityText"]': "paymentsSecurityText",
+  '[data-translate="yourChoices"]': "yourChoices",
+  '[data-translate="yourChoicesText"]': "yourChoicesText",
+  '[data-translate="backSettings"]': "backSettings"
+};
   Object.entries(selectors).forEach(([selector, key]) => {
     document.querySelectorAll(selector).forEach(element => {
       element.textContent = t[key];
