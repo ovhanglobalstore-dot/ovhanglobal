@@ -620,6 +620,142 @@ function applyTheme(dark) {
   } catch (_) {}
 }
 
+// LANGUAGE TRANSLATION SYSTEM
+const translations = {
+  en: {
+    cart: "Your shopping cart",
+    cartDescription: "Review items and quantities before preparing your order.",
+    checkout: "Continue to order",
+    settings: "Settings",
+    settingsDescription: "Manage your profile, appearance, language and privacy preferences.",
+    profile: "Profile features",
+    profileDescription: "Account photo, sign out and account options",
+    openProfile: "Open profile →",
+    theme: "Theme",
+    lightTheme: "Light theme",
+    darkTheme: "Dark theme",
+    language: "Language",
+    chooseLanguage: "Choose your preferred language",
+    privacy: "Privacy policy",
+    readPolicy: "Read policy →",
+    reset: "Reset settings"
+  },
+
+  sw: {
+    cart: "Kikapu chako cha ununuzi",
+    cartDescription: "Kagua bidhaa na idadi kabla ya kuandaa oda yako.",
+    checkout: "Endelea kuagiza",
+    settings: "Mipangilio",
+    settingsDescription: "Dhibiti wasifu, mwonekano, lugha na faragha.",
+    profile: "Vipengele vya wasifu",
+    profileDescription: "Picha ya akaunti, kutoka na chaguo za akaunti",
+    openProfile: "Fungua wasifu →",
+    theme: "Mandhari",
+    lightTheme: "Mandhari angavu",
+    darkTheme: "Mandhari meusi",
+    language: "Lugha",
+    chooseLanguage: "Chagua lugha unayopendelea",
+    privacy: "Sera ya faragha",
+    readPolicy: "Soma sera →",
+    reset: "Weka upya mipangilio"
+  },
+
+  lg: {
+    cart: "Ekigaali kyo eky'okuguliramu",
+    cartDescription: "Kebera ebintu n'obungi bwabyo nga tonnategeka kusaba kwo.",
+    checkout: "Weyongereyo okugula",
+    settings: "Enteekateeka",
+    settingsDescription: "Fuga akawunti yo, endabika, olulimi n'ebyama.",
+    profile: "Ebikwata ku akawunti",
+    profileDescription: "Ekifaananyi, okufuluma n'ebirala eby'akawunti",
+    openProfile: "Ggulawo akawunti →",
+    theme: "Endabika",
+    lightTheme: "Endabika eyaka",
+    darkTheme: "Endabika enzikiza",
+    language: "Olulimi",
+    chooseLanguage: "Londa olulimi lw'oyagala",
+    privacy: "Enkola y'ebyama",
+    readPolicy: "Soma enkola →",
+    reset: "Zzaawo enteekateeka"
+  },
+
+  fr: {
+    cart: "Votre panier",
+    cartDescription: "Vérifiez les articles et les quantités avant de préparer votre commande.",
+    checkout: "Continuer la commande",
+    settings: "Paramètres",
+    settingsDescription: "Gérez votre profil, votre apparence, votre langue et votre confidentialité.",
+    profile: "Fonctions du profil",
+    profileDescription: "Photo du compte, déconnexion et options du compte",
+    openProfile: "Ouvrir le profil →",
+    theme: "Thème",
+    lightTheme: "Thème clair",
+    darkTheme: "Thème sombre",
+    language: "Langue",
+    chooseLanguage: "Choisissez votre langue préférée",
+    privacy: "Politique de confidentialité",
+    readPolicy: "Lire la politique →",
+    reset: "Réinitialiser les paramètres"
+  },
+
+  ar: {
+    cart: "سلة التسوق الخاصة بك",
+    cartDescription: "راجع المنتجات والكميات قبل تجهيز طلبك.",
+    checkout: "متابعة الطلب",
+    settings: "الإعدادات",
+    settingsDescription: "إدارة ملفك الشخصي والمظهر واللغة والخصوصية.",
+    profile: "ميزات الملف الشخصي",
+    profileDescription: "صورة الحساب وتسجيل الخروج وخيارات الحساب",
+    openProfile: "فتح الملف الشخصي →",
+    theme: "المظهر",
+    lightTheme: "المظهر الفاتح",
+    darkTheme: "المظهر الداكن",
+    language: "اللغة",
+    chooseLanguage: "اختر لغتك المفضلة",
+    privacy: "سياسة الخصوصية",
+    readPolicy: "قراءة السياسة →",
+    reset: "إعادة ضبط الإعدادات"
+  }
+};
+
+// TRANSLATE PAGE ELEMENTS
+function applyLanguage(language) {
+  const lang = translations[language] ? language : "en";
+  const t = translations[lang];
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+  const selectors = {
+    '[data-translate="cart"]': "cart",
+    '[data-translate="cartDescription"]': "cartDescription",
+    '[data-translate="checkout"]': "checkout",
+    '[data-translate="settings"]': "settings",
+    '[data-translate="settingsDescription"]': "settingsDescription",
+    '[data-translate="profile"]': "profile",
+    '[data-translate="profileDescription"]': "profileDescription",
+    '[data-translate="openProfile"]': "openProfile",
+    '[data-translate="theme"]': "theme",
+    '[data-translate="language"]': "language",
+    '[data-translate="chooseLanguage"]': "chooseLanguage",
+    '[data-translate="privacy"]': "privacy",
+    '[data-translate="readPolicy"]': "readPolicy",
+    '[data-translate="reset"]': "reset"
+  };
+
+  Object.entries(selectors).forEach(([selector, key]) => {
+    document.querySelectorAll(selector).forEach(element => {
+      element.textContent = t[key];
+    });
+  });
+
+  const themeStatus = $("#themeStatus");
+  if (themeStatus) {
+    const st = readSettings();
+    themeStatus.textContent = st.dark ? t.darkTheme : t.lightTheme;
+  }
+}
+
 function initSettings() {
   const st = readSettings();
   applyTheme(!!st.dark);
@@ -627,6 +763,8 @@ function initSettings() {
   if ($("#languageSelect")) {
     $("#languageSelect").value = st.language || "en";
   }
+
+  applyLanguage(st.language || "en");
 }
 
 $("#themeSwitch")?.addEventListener("change", e => {
@@ -641,7 +779,7 @@ $("#languageSelect")?.addEventListener("change", e => {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(st));
   } catch (_) {}
 
-  toast("Language preference saved. Full page translation is not enabled yet.");
+  applyLanguage(st.language);
 });
 
 $("#profilePhotoInput")?.addEventListener("change", async e => {
