@@ -938,7 +938,7 @@ function applyLanguage(language) {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
-  // Translate all elements marked with data-translate
+  // Translate page text
   document.querySelectorAll("[data-translate]").forEach(element => {
     const key = element.getAttribute("data-translate");
 
@@ -963,7 +963,6 @@ function applyLanguage(language) {
     const st = readSettings();
     themeStatus.textContent = st.dark ? t.darkTheme : t.lightTheme;
   }
-  
 }
 
 function initSettings() {
@@ -991,7 +990,7 @@ $("#languageSelect")?.addEventListener("change", e => {
 
   applyLanguage(st.language);
 });
-
+  
 $("#profilePhotoInput")?.addEventListener("change", async e => {
   const input = e.target;
   const file = input.files?.[0];
