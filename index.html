@@ -835,17 +835,7 @@ async function loadMyOrders(){
    }
  };
 }
-  
-async function loadMyOrders(){
- const host=$("#ordersList");if(!host)return;
- if(!currentAuthUser){host.innerHTML='<p class="notice">Please sign in to track your orders.</p>';return;}
- if(!supabaseReady()){host.innerHTML='<p class="notice">Connect Supabase and run supabase-setup.sql to enable order tracking.</p>';return;}
- host.innerHTML='<p class="notice">Loading your orders…</p>';
- const {data,error}=await supabaseClient.from("orders").select("id,created_at,status,total_amount,currency,items").eq("user_id",currentAuthUser.id).order("created_at",{ascending:false});
- if(error){host.innerHTML=`<p class="notice">Could not load orders: ${escapeHtml(error.message)}</p>`;return;}
- if(!data?.length){host.innerHTML='<p class="notice">No orders yet. Orders you place will appear here.</p>';return;}
- host.innerHTML=data.map(o=>`<article class="notice" style="margin:12px 0;padding:16px"><strong>Order #${escapeHtml(String(o.id).slice(0,8))}</strong><p>Placed: ${new Date(o.created_at).toLocaleString()}</p><p>Status: <strong>${escapeHtml(o.status||"pending")}</strong></p><p>Total: ${formatPrice(Number(o.total_amount||0))} ${escapeHtml(o.currency||"UGX")}</p><details><summary>View items</summary><ul>${(Array.isArray(o.items)?o.items:[]).map(it=>`<li>${escapeHtml(it.name||"Item")} × ${Number(it.quantity||0)}</li>`).join("")}</ul></details></article>`).join("");
-}
+
 function escapeHtml(value){return String(value).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));}
 $("#refreshOrdersBtn")?.addEventListener("click",loadMyOrders);
 function contactFromForm(e){e.preventDefault();const msg=$("#contactMessage").value.trim();if(msg)helpWhatsApp("Hello Ovhan Global, I have a question:\n"+msg)}
