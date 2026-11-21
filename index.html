@@ -787,6 +787,55 @@ $("#orderForm").addEventListener("submit",async e=>{
    toast("Order could not be saved: "+(err.message||"Please try again."));
  } finally {submit.disabled=false;submit.textContent=label;}
 });
+  
+async function loadMyOrders(){
+ const host=$("#ordersList");if(!host)return;
+ if(!currentAuthUser){host.innerHTML='<p class="notice">Please sign in to track your orders.</p>';return;}
+ if(!supabaseReady()){host.innerHTML='<p class="notice">Connect Supabase and run supabase-setup.sql to enable order tracking.</p>';return;}
+ host.innerHTML='<p class="notice">Loading your orders…</p>';
+ const {data,error}=await supabaseClient.from("orders").select("id,created_at,status,total_amount,currency,items").eq("user_id",currentAuthUser.id).order("created_at",{ascending:false});
+ if(error){host.innerHTML=`<p class="notice">Could not load orders: ${escapeHtml(error.message)}</p>`;return;}
+ if(!data?.length){host.innerHTML='<p class="notice">No orders yet. Orders you place will appear here.</p>';return;}
+
+ host.innerHTML=data.map(o=>{
+   const pending=String(o.status||"pending").toLowerCase()==="pending";
+   return `<article class="notice" style="margin:12px 0;padding:16px">
+     <strong>Order #${escapeHtml(String(o.id).slice(0,8))}</strong>
+     <p>Placed: ${new Date(o.created_at).toLocaleString()}</p>
+     <p>Status: <strong>${escapeHtml(o.status||"pending")}</strong></p>
+     <p>Total: ${formatPrice(Number(o.total_amount||0))} ${escapeHtml(o.currency||"UGX")}</p>
+     <details><summary>View items</summary><ul>${(Array.isArray(o.items)?o.items:[]).map(it=>`<li>${escapeHtml(it.name||"Item")} × ${Number(it.quantity||0)}</li>`).join("")}</ul></details>
+     ${pending?`<button type="button" class="secondary-button" data-cancel-order="${escapeHtml(String(o.id))}" style="margin-top:12px">Cancel Order</button>`:""}
+   </article>`;
+ }).join("");
+
+ host.onclick=async function(e){
+   const btn=e.target.closest("[data-cancel-order]");
+   if(!btn)return;
+   const orderId=btn.getAttribute("data-cancel-order");
+   if(!confirm("Are you sure you want to cancel this order?"))return;
+   btn.disabled=true;
+   btn.textContent="Cancelling…";
+   try{
+     const {data:cancelled,error:cancelError}=await supabaseClient.from("orders")
+       .update({status:"cancelled"})
+       .eq("id",orderId)
+       .eq("user_id",currentAuthUser.id)
+       .eq("status","pending")
+       .select("id")
+       .maybeSingle();
+     if(cancelError)throw cancelError;
+     if(!cancelled)throw new Error("This order can no longer be cancelled.");
+     toast("Order cancelled successfully.");
+     await loadMyOrders();
+   }catch(err){
+     toast("Could not cancel order: "+(err.message||"Please try again."));
+     btn.disabled=false;
+     btn.textContent="Cancel Order";
+   }
+ };
+}
+  
 async function loadMyOrders(){
  const host=$("#ordersList");if(!host)return;
  if(!currentAuthUser){host.innerHTML='<p class="notice">Please sign in to track your orders.</p>';return;}
