@@ -739,7 +739,7 @@ async function loadMarketplaceProducts(){
    const rawGallery=row.images||row.image_urls||row.additional_images||row.gallery_images||[];
    const gallery=(Array.isArray(rawGallery)?rawGallery:(typeof rawGallery==="string"?(()=>{try{return JSON.parse(rawGallery)}catch(_){return rawGallery.split(",").map(x=>x.trim()).filter(Boolean)}})():[])).map(v=>typeof v==="string"?v:(v?.url||v?.image_url||v?.path||"")).filter(Boolean).map(src=>{if(/^https?:\/\//i.test(src))return src;const clean=String(src).replace(/^\/?product-images\//,"");return supabaseClient.storage.from("product-images").getPublicUrl(clean)?.data?.publicUrl||"";}).filter(Boolean);
    const galleryImages=[...new Set([image,...gallery].filter(Boolean))];
-   return {id:String(row.id),name:String(row.name||"Untitled product"),category:String(row.category||"Other"),desc:String(row.description||""),price:Number.isFinite(price)?price:0,image:galleryImages[0]||image,images:galleryImages,oldPrice:0,rating:0,badge:"",stock:Number(row.stock_quantity||0),sizes:Array.isArray(row.sizes)?row.sizes:[]};
+   return {id:String(row.id),name:String(row.name||"Untitled product"),category:String(row.category||"Other"),subcategory:String(row.subcategory||""),desc:String(row.description||""),price:Number.isFinite(price)?price:0,image:galleryImages[0]||image,images:galleryImages,oldPrice:0,rating:0,badge:"",stock:Number(row.stock_quantity||0),sizes:Array.isArray(row.sizes)?row.sizes:[]};
   });
   // Remove stale demo-product IDs from saved carts/wishlists without touching real product IDs.
   const validIds=new Set(products.map(p=>String(p.id)));
